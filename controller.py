@@ -69,16 +69,20 @@ class Controller:
     
     def key_input(self, str=''):
         for c in str:
-            if c=='_':
+            if c.isupper():
+                cc = c.lower()
+                win32api.keybd_event(VK_CODE['shift'], 0, 0, 0)
+                win32api.keybd_event(VK_CODE[cc], 0, 0, 0)
+                win32api.keybd_event(VK_CODE[cc], 0, win32con.KEYEVENTF_KEYUP, 0)
+                win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
+            elif c=='_':
                 win32api.keybd_event(VK_CODE['shift'], 0, 0, 0)
                 win32api.keybd_event(VK_CODE['-'], 0, 0, 0)
                 win32api.keybd_event(VK_CODE['-'], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
-                time.sleep(self.keyinput_delay)
             else:
                 win32api.keybd_event(VK_CODE[c], 0, 0, 0)
                 win32api.keybd_event(VK_CODE[c], 0, win32con.KEYEVENTF_KEYUP, 0)
-                time.sleep(self.keyinput_delay)
         time.sleep(self.keyboard_delay)
     
     def key_remove(self, str):
@@ -95,7 +99,7 @@ class Controller:
         self.mouse_click_name('mid')
         self.mouse_click_name('back')
         time.sleep(3)
-        for i in range(3):
+        for i in range(4):
             win32api.keybd_event(VK_CODE['down_arrow'], 0, 0, 0)
             time.sleep(0.005)
             win32api.keybd_event(VK_CODE['down_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)

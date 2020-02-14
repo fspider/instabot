@@ -1,0 +1,12 @@
+2020-02-14 12:00:18,600 - DEBUG - debug message
+2020-02-14 12:00:18,600 - INFO - info message
+2020-02-14 12:06:58,881 - INFO - InstaBot Started!
+2020-02-14 12:07:03,920 - INFO - InstaBot Ended!
+2020-02-14 12:08:02,335 - INFO - InstaBot Started!
+2020-02-14 12:08:02,335 - INFO - -> Loading Data
+2020-02-14 12:08:02,344 - INFO - <- Loading Data
+2020-02-14 12:08:07,378 - INFO - InstaBot Ended!
+2020-02-14 14:28:43,095 - INFO - InstaBot Started!
+2020-02-14 14:28:43,099 - INFO - -> Loading Data
+2020-02-14 14:28:43,101 - INFO - <- Loading Data
+2020-02-14 14:28:48,160 - INFO - InstaBot Ended!

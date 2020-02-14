@@ -28,18 +28,24 @@ class Actor:
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('item_follow')
         return name_list[0]
+    
+    def unfollow_one(self, name):
+        self.controller.mouse_click_name('item_unfollow')
 
     def capture_search_result(self):
         name = self.controller.capture_text('search_result')
         print(name)
-        if name is 'No users found.':
+        if 'No users found' in name:
+            return False
+        elif name is '':
             return False
         else:
             return True
 
     def get_config(self, val1, val2):
-        return  int(self.config.get(val1, val2))
+        return int(self.config.get(val1, val2))
     def save_config(self):
         with open(self.config_filename, 'w') as f:
             config.write(f + '\n')
         
+    
