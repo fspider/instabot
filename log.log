@@ -119,3 +119,19 @@
 2020-02-14 23:09:07,650 - INFO - <- Start Followings
 2020-02-14 23:09:07,650 - INFO - -> Save Data
 2020-02-14 23:09:07,652 - INFO - <- Save Data
+2020-02-15 16:08:18,650 - INFO - InstaBot Started!
+2020-02-15 16:08:18,652 - INFO - -> Loading Data
+2020-02-15 16:08:18,652 - INFO - <- Loading Data
+2020-02-15 16:08:18,653 - INFO - -> Check Following
+2020-02-15 16:08:25,681 - INFO - <- Check Following
+2020-02-15 16:08:25,681 - INFO - -> Remove Followings
+2020-02-15 16:08:32,736 - INFO - <- Remove Followings
+2020-02-15 16:08:32,736 - INFO - -> Start Followings
+2020-02-15 16:09:21,089 - INFO - <- Start Followings
+2020-02-15 16:10:32,949 - INFO - InstaBot Started!
+2020-02-15 16:10:32,950 - INFO - -> Loading Data
+2020-02-15 16:10:32,951 - INFO - <- Loading Data
+2020-02-15 16:10:32,951 - INFO - -> Check Following
+2020-02-15 16:10:40,011 - INFO - <- Check Following
+2020-02-15 16:10:40,011 - INFO - -> Remove Followings
+2020-02-15 16:10:47,050 - INFO - <- Remove Followings

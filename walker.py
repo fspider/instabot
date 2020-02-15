@@ -63,7 +63,7 @@ class Walker:
 
     def loadNewFollowingList(self):
         self.logger.info('-> Loading Data')
-        f = open(self.savedFilename, "r")
+        f = open(self.savedFilename, "w+")
         for x in f:
             self.followings.append(x[:-1])
         f.close()
@@ -170,7 +170,7 @@ class Walker:
 
     def saveFollowingList(self):
         self.logger.info('-> Save Data')
-        with open(self.savedFilename, 'w') as f:
+        with open(self.savedFilename, 'w+') as f:
             for name in self.followings:
                 f.write(name + '\n')
         self.logger.info('<- Save Data')
