@@ -3,7 +3,8 @@ from configparser import ConfigParser
 import time
 class Actor:
     
-    def __init__(self):
+    def __init__(self, _stopevent):
+        self._stopevent = _stopevent
         self.config_filename = 'config.ini'
         self.config = ConfigParser()
         self.config.read(self.config_filename)

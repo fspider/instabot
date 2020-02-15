@@ -10,3 +10,112 @@
 2020-02-14 14:28:43,099 - INFO - -> Loading Data
 2020-02-14 14:28:43,101 - INFO - <- Loading Data
 2020-02-14 14:28:48,160 - INFO - InstaBot Ended!
+2020-02-14 17:52:41,592 - INFO - InstaBot Started!
+2020-02-14 17:52:41,593 - INFO - -> Loading Data
+2020-02-14 17:52:41,594 - INFO - <- Loading Data
+2020-02-14 17:52:46,653 - INFO - InstaBot Ended!
+2020-02-14 17:54:33,834 - INFO - InstaBot Started!
+2020-02-14 17:54:33,834 - INFO - -> Loading Data
+2020-02-14 17:54:33,835 - INFO - <- Loading Data
+2020-02-14 17:54:33,835 - INFO - InstaBot Ended!
+2020-02-14 17:55:02,811 - INFO - InstaBot Started!
+2020-02-14 17:55:02,812 - INFO - -> Loading Data
+2020-02-14 17:55:02,813 - INFO - <- Loading Data
+2020-02-14 17:55:02,813 - INFO - -> Check Following
+2020-02-14 17:56:16,234 - INFO - InstaBot Started!
+2020-02-14 17:56:16,234 - INFO - -> Loading Data
+2020-02-14 17:56:16,235 - INFO - <- Loading Data
+2020-02-14 17:56:16,235 - INFO - -> Check Following
+2020-02-14 17:56:31,422 - INFO -      is Following me
+2020-02-14 17:56:39,501 - INFO - <- Check Following
+2020-02-14 17:56:39,501 - INFO - -> Remove Followings
+2020-02-14 17:56:42,510 - INFO - <- Remove Followings
+2020-02-14 17:56:42,510 - INFO - -> Start Followings
+2020-02-14 17:57:16,049 - INFO -     Adding -> lalalalisa_m
+2020-02-14 17:57:27,512 - INFO -     Adding -> roses_are_rosie
+2020-02-14 17:57:28,514 - INFO - <- Start Followings
+2020-02-14 17:57:28,514 - INFO - -> Save Data
+2020-02-14 17:57:28,517 - INFO - <- Save Data
+2020-02-14 17:57:28,517 - INFO - InstaBot Ended!
+2020-02-14 18:50:36,845 - INFO - InstaBot Started!
+2020-02-14 18:50:36,845 - INFO - InstaBot Ended!
+2020-02-14 18:52:20,222 - INFO - InstaBot Started!
+2020-02-14 18:52:20,222 - INFO - InstaBot Ended!
+2020-02-14 18:53:05,505 - INFO - InstaBot Started!
+2020-02-14 18:53:05,506 - INFO - InstaBot Ended!
+2020-02-14 18:57:02,813 - INFO - InstaBot Started!
+2020-02-14 18:57:02,814 - INFO - InstaBot Ended!
+2020-02-14 18:58:02,226 - INFO - InstaBot Started!
+2020-02-14 18:58:02,227 - INFO - InstaBot Ended!
+2020-02-14 18:58:10,835 - INFO - InstaBot Started!
+2020-02-14 18:58:10,835 - INFO - -> Loading Data
+2020-02-14 18:58:10,836 - INFO - <- Loading Data
+2020-02-14 18:58:10,836 - INFO - -> Check Following
+2020-02-14 18:58:24,500 - INFO -      is not Following me
+2020-02-14 18:58:43,148 - INFO -     lalalalisa_m is not Following me
+2020-02-14 18:59:01,740 - INFO -     roses_are_rosie is not Following me
+2020-02-14 18:59:09,828 - INFO - <- Check Following
+2020-02-14 18:59:09,828 - INFO - -> Remove Followings
+2020-02-14 19:06:59,542 - INFO - InstaBot Started!
+2020-02-14 19:06:59,543 - INFO - -> Loading Data
+2020-02-14 19:06:59,543 - INFO - <- Loading Data
+2020-02-14 19:06:59,544 - INFO - -> Check Following
+2020-02-14 22:39:27,200 - DEBUG - Using selector: SelectSelector
+2020-02-14 22:39:30,472 - INFO - InstaBot Started!
+2020-02-14 22:39:30,473 - INFO - -> Loading Data
+2020-02-14 22:39:30,474 - INFO - <- Loading Data
+2020-02-14 22:39:30,474 - INFO - -> Check Following
+2020-02-14 22:39:44,195 - INFO -      is not Following me
+2020-02-14 22:39:52,334 - INFO - <- Check Following
+2020-02-14 22:43:29,307 - DEBUG - Using selector: SelectSelector
+2020-02-14 22:43:34,805 - INFO - InstaBot Started!
+2020-02-14 22:43:34,806 - INFO - -> Loading Data
+2020-02-14 22:43:34,808 - INFO - <- Loading Data
+2020-02-14 22:43:34,809 - INFO - -> Check Following
+2020-02-14 22:43:48,431 - INFO -      is not Following me
+2020-02-14 22:43:56,595 - INFO - <- Check Following
+2020-02-14 22:44:36,972 - INFO - InstaBot Started!
+2020-02-14 22:44:36,974 - INFO - -> Loading Data
+2020-02-14 22:44:36,975 - INFO - <- Loading Data
+2020-02-14 22:44:36,979 - INFO - -> Check Following
+2020-02-14 22:44:50,619 - INFO -      is not Following me
+2020-02-14 22:45:09,377 - INFO -     lalalalisa_m is not Following me
+2020-02-14 22:45:17,518 - INFO - <- Check Following
+2020-02-14 22:48:13,341 - INFO - InstaBot Started!
+2020-02-14 22:48:13,342 - INFO - -> Loading Data
+2020-02-14 22:48:13,345 - INFO - <- Loading Data
+2020-02-14 22:48:13,357 - INFO - -> Check Following
+2020-02-14 22:48:27,058 - INFO -     lalalalisa_m is not Following me
+2020-02-14 22:48:45,687 - INFO -     roses_are_ is not Following me
+2020-02-14 22:48:53,787 - INFO - <- Check Following
+2020-02-14 22:48:53,788 - INFO - -> Remove Followings
+2020-02-14 22:49:08,384 - INFO -     lalalalisa_m removed
+2020-02-14 22:56:25,955 - INFO - InstaBot Started!
+2020-02-14 22:56:25,956 - INFO - -> Check Following
+2020-02-14 22:58:59,252 - INFO - InstaBot Started!
+2020-02-14 22:58:59,253 - INFO - -> Check Following
+2020-02-14 22:59:57,578 - INFO - InstaBot Started!
+2020-02-14 23:00:10,707 - INFO - InstaBot Started!
+2020-02-14 23:00:10,708 - INFO - -> Check Following
+2020-02-14 23:00:56,520 - INFO - InstaBot Started!
+2020-02-14 23:00:56,522 - INFO - -> Check Following
+2020-02-14 23:03:15,072 - INFO - InstaBot Started!
+2020-02-14 23:03:15,073 - INFO - -> Check Following
+2020-02-14 23:06:31,941 - INFO - InstaBot Started!
+2020-02-14 23:06:31,943 - INFO - -> Loading Data
+2020-02-14 23:06:31,952 - INFO - <- Loading Data
+2020-02-14 23:06:31,952 - INFO - -> Check Following
+2020-02-14 23:06:49,784 - INFO -     lalalalisa_m is not Following me
+2020-02-14 23:07:08,483 - INFO -     mhdadibirfan is Following me
+2020-02-14 23:07:27,079 - INFO -     roses_are_ is not Following me
+2020-02-14 23:07:35,170 - INFO - <- Check Following
+2020-02-14 23:07:35,170 - INFO - -> Remove Followings
+2020-02-14 23:07:53,739 - INFO -     lalalalisa_m removed
+2020-02-14 23:08:13,421 - INFO -     roses_are_ removed
+2020-02-14 23:08:21,509 - INFO - <- Remove Followings
+2020-02-14 23:08:21,509 - INFO - -> Start Followings
+2020-02-14 23:08:55,138 - INFO -     Adding -> blackpinkofficial
+2020-02-14 23:09:06,647 - INFO -     Adding -> eunwo.0_c
+2020-02-14 23:09:07,650 - INFO - <- Start Followings
+2020-02-14 23:09:07,650 - INFO - -> Save Data
+2020-02-14 23:09:07,652 - INFO - <- Save Data

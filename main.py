@@ -1,32 +1,13 @@
-from walker import Walker
+from walker import WalkerThread
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import time
 from PIL import Image, ImageTk
-import tkinter.scrolledtext as ScrolledText
 import logging
-import threading
-
-class TextHandler(logging.Handler):
-    """This class allows you to log to a Tkinter Text or ScrolledText widget"""
-    def __init__(self, text):
-        # run the regular Handler __init__
-        logging.Handler.__init__(self)
-        # Store a reference to the Text it will log to
-        self.text = text
-
-    def emit(self, record):
-        msg = self.format(record)
-        # print(msg)
-        def append():
-            self.text.configure(state='normal')
-            self.text.insert(tk.END, msg + '\n')
-            self.text.configure(state='disabled')
-            # Autoscroll to the bottom
-            self.text.yview(tk.END)
-        # This is necessary because we can't modify the Text from other threads
-        self.text.after(0, append)
+from threading import Thread
+from logger import ConsoleUi
+import signal
 
 class MainFrm(Frame):
     def __init__(self):
@@ -42,7 +23,7 @@ class MainFrm(Frame):
         imgBanner.image = render
         imgBanner.place(x=0, y=0, w=600, h=100)
 
-        bt_w = 120
+        bt_w = 100
         bt_h =30
 
         self.btStart = Button(self, text = "Start", command = self.btStart_clicked)
@@ -54,36 +35,35 @@ class MainFrm(Frame):
         self.btStop.place(x=20, y = 190, w=bt_w, h=bt_h)
         self.btSetting.place(x=20, y = 230, w=bt_w, h=bt_h)
 
-        # List Name
-        self.lbFollow = Label(self, text='New Followings')
-        self.lbFollow.place(x=150, y = 120, w=bt_w, h=bt_h)
+        self.console_frame = ttk.Labelframe(self, text="Console")
+        self.console_frame.place(x=140, y = 120, w=430, h=420)
 
-        # List Box
-        # self.liFollow = Listbox(self)
-        # self.liFollow.place(x=160, y = 150, w=300, h=420)
-
-        self.log = ScrolledText.ScrolledText(self, state='disabled')
-        self.log.configure(font='TkFixedFont')
-        self.log.place(x=160, y = 150, w=300, h=420)
-
-        self.text_handler = TextHandler(self.log)
-
-        logging.basicConfig(filename='log.log',
+        logging.basicConfig(
+            filename='log.log',
             level=logging.DEBUG, 
             format='%(asctime)s - %(levelname)s - %(message)s') 
-
         self.logger = logging.getLogger()
-        self.logger.addHandler(self.text_handler)
-        self.walker = Walker(self.logger)
+
+        self.console = ConsoleUi(self.console_frame, self.logger)
+        self.console.scrolled_text.place(x=4, y = 4, w=420, h=380)
+
+        self.walkerThread = WalkerThread(self.logger)
+
+        self.master.protocol('WM_DELETE_WINDOW', self.quit)
+        self.master.bind('<Control-q>', self.quit)
+        signal.signal(signal.SIGINT, self.quit)
 
     def btStart_clicked(self):
+        self.btStart.config(state='disabled')
         self.logger.info('InstaBot Started!')
-        self.walker.start()
-        self.logger.info('InstaBot Ended!')
+        self.walkerThread.start()
     
     def btStop_clicked(self):
-        pass
+        self.walkerThread.stop()
+        self.btStart.config(state = 'normal')
 
+    def exit(self):
+        self.master.destroy()
 
 if __name__ == '__main__':
     MainFrm().mainloop()
