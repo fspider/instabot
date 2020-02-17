@@ -135,3 +135,338 @@
 2020-02-15 16:10:40,011 - INFO - <- Check Following
 2020-02-15 16:10:40,011 - INFO - -> Remove Followings
 2020-02-15 16:10:47,050 - INFO - <- Remove Followings
+2020-02-15 18:01:29,139 - INFO - InstaBot Started!
+2020-02-15 18:02:24,119 - INFO - InstaBot Started!
+2020-02-15 18:02:45,833 - INFO - InstaBot Started!
+2020-02-15 18:03:32,493 - INFO - InstaBot Started!
+2020-02-15 18:03:49,086 - INFO - InstaBot Started!
+2020-02-15 18:04:32,769 - INFO - InstaBot Started!
+2020-02-15 18:04:58,043 - INFO - InstaBot Started!
+2020-02-15 18:07:25,135 - INFO - InstaBot Started!
+2020-02-15 18:07:25,137 - DEBUG - [START 1th Cycle]
+2020-02-15 18:07:25,137 - INFO - -> Loading Data
+2020-02-15 18:07:25,138 - INFO - <- Loading Data
+2020-02-15 18:07:25,138 - INFO - -> Check Following
+2020-02-15 18:07:32,196 - INFO - <- Check Following
+2020-02-15 18:07:32,196 - INFO - -> Remove Followings
+2020-02-15 18:07:39,234 - INFO - <- Remove Followings
+2020-02-15 18:07:39,234 - INFO - -> Start Followings
+2020-02-15 18:08:13,024 - INFO -     Adding -> choi_seung_hyun_tttop
+2020-02-15 18:08:24,516 - INFO -     Adding -> lucas_xx444
+2020-02-15 18:08:25,519 - INFO - <- Start Followings
+2020-02-15 18:08:25,519 - INFO - -> Save Data
+2020-02-15 18:08:25,521 - INFO - <- Save Data
+2020-02-16 11:22:55,032 - INFO - InstaBot Started!
+2020-02-16 11:22:55,058 - DEBUG - [START 1th Cycle]
+2020-02-16 11:22:55,058 - INFO - -> Loading Data
+2020-02-16 11:22:55,059 - INFO - <- Loading Data
+2020-02-16 11:22:55,059 - INFO - -> Check Following
+2020-02-16 11:23:02,088 - INFO - <- Check Following
+2020-02-16 11:23:02,088 - INFO - -> Remove Followings
+2020-02-16 11:23:09,129 - INFO - <- Remove Followings
+2020-02-16 11:23:09,129 - INFO - -> Start Followings
+2020-02-16 11:24:08,214 - INFO -     Adding -> A
+2020-02-16 11:24:09,233 - INFO - <- Start Followings
+2020-02-16 11:24:22,255 - INFO - InstaBot Started!
+2020-02-16 11:31:07,535 - INFO - InstaBot Started!
+2020-02-16 11:31:07,536 - DEBUG - [START 1th Cycle]
+2020-02-16 11:31:07,536 - INFO - -> Loading Data
+2020-02-16 11:31:07,537 - INFO - <- Loading Data
+2020-02-16 11:31:07,537 - INFO - -> Check Following
+2020-02-16 11:31:12,255 - INFO - InstaBot Started!
+2020-02-16 11:31:12,255 - ERROR - Thread is already running
+2020-02-16 11:31:14,594 - INFO - <- Check Following
+2020-02-16 11:33:25,804 - INFO - Bot Thread Started!
+2020-02-16 11:33:25,812 - DEBUG - [START 1th Cycle]
+2020-02-16 11:33:25,812 - INFO - -> Loading Data
+2020-02-16 11:33:25,813 - INFO - <- Loading Data
+2020-02-16 11:33:25,813 - INFO - -> Check Following
+2020-02-16 11:33:32,873 - INFO - <- Check Following
+2020-02-16 11:34:14,359 - INFO - Bot Thread Started!
+2020-02-16 11:34:14,360 - DEBUG - [START 1th Cycle]
+2020-02-16 11:34:14,360 - INFO - -> Loading Data
+2020-02-16 11:34:14,361 - INFO - <- Loading Data
+2020-02-16 11:34:14,361 - INFO - -> Check Following
+2020-02-16 11:34:21,407 - INFO - <- Check Following
+2020-02-16 11:34:21,407 - INFO - Bot Thread Ended!
+2020-02-17 09:16:11,793 - INFO - Bot Thread Started!
+2020-02-17 09:16:11,794 - DEBUG - [START 1th Cycle]
+2020-02-17 09:16:11,794 - INFO - -> Loading Data
+2020-02-17 09:16:11,795 - INFO - <- Loading Data
+2020-02-17 09:16:11,795 - INFO - -> Check Following
+2020-02-17 09:16:18,828 - INFO - <- Check Following
+2020-02-17 09:16:18,828 - INFO - -> Remove Followings
+2020-02-17 09:16:25,851 - INFO - <- Remove Followings
+2020-02-17 09:16:25,851 - INFO - -> Start Followings
+2020-02-17 09:17:00,241 - INFO -     Adding -> volkswagen
+2020-02-17 09:17:11,736 - INFO -     Adding -> neymarjr
+2020-02-17 09:17:12,739 - INFO - <- Start Followings
+2020-02-17 09:17:12,739 - INFO - -> Save Data
+2020-02-17 09:17:12,741 - INFO - <- Save Data
+2020-02-17 09:18:56,494 - INFO - Bot Thread Started!
+2020-02-17 09:18:56,495 - DEBUG - [START 1th Cycle]
+2020-02-17 09:18:56,495 - INFO - -> Loading Data
+2020-02-17 09:18:56,496 - INFO - <- Loading Data
+2020-02-17 09:18:56,496 - INFO - -> Check Following
+2020-02-17 09:19:03,543 - INFO - <- Check Following
+2020-02-17 09:19:03,543 - INFO - -> Remove Followings
+2020-02-17 09:19:10,568 - INFO - <- Remove Followings
+2020-02-17 09:19:10,568 - INFO - -> Start Followings
+2020-02-17 09:19:44,271 - INFO -     Adding -> pinjaman_online_real777
+2020-02-17 09:19:55,796 - INFO -     Adding -> ponysmakeup
+2020-02-17 09:19:56,799 - INFO - <- Start Followings
+2020-02-17 09:19:56,799 - INFO - -> Save Data
+2020-02-17 09:19:56,801 - INFO - <- Save Data
+2020-02-17 09:21:43,443 - INFO - Bot Thread Started!
+2020-02-17 09:21:43,444 - DEBUG - [START 1th Cycle]
+2020-02-17 09:21:43,444 - INFO - -> Loading Data
+2020-02-17 09:21:43,445 - INFO - <- Loading Data
+2020-02-17 09:21:43,445 - INFO - -> Check Following
+2020-02-17 09:21:50,474 - INFO - <- Check Following
+2020-02-17 09:21:50,474 - INFO - -> Remove Followings
+2020-02-17 09:21:57,498 - INFO - <- Remove Followings
+2020-02-17 09:21:57,498 - INFO - Bot Thread Ended!
+2020-02-17 09:24:50,970 - INFO - Bot Thread Started!
+2020-02-17 09:24:50,971 - DEBUG - [START 1th Cycle]
+2020-02-17 09:24:50,972 - INFO - -> Loading Data
+2020-02-17 09:24:50,972 - INFO - <- Loading Data
+2020-02-17 09:24:50,973 - INFO - -> Check Following
+2020-02-17 09:24:58,020 - INFO - <- Check Following
+2020-02-17 09:24:58,020 - INFO - -> Remove Followings
+2020-02-17 09:25:05,078 - INFO - <- Remove Followings
+2020-02-17 09:25:05,078 - INFO - Bot Thread Ended!
+2020-02-17 09:25:28,397 - INFO - Bot Thread Started!
+2020-02-17 09:25:28,399 - DEBUG - [START 1th Cycle]
+2020-02-17 09:25:28,399 - INFO - -> Loading Data
+2020-02-17 09:25:28,399 - INFO - <- Loading Data
+2020-02-17 09:25:28,400 - INFO - -> Check Following
+2020-02-17 09:25:35,428 - INFO - <- Check Following
+2020-02-17 09:25:35,428 - INFO - -> Remove Followings
+2020-02-17 09:25:42,470 - INFO - <- Remove Followings
+2020-02-17 09:25:42,470 - INFO - Bot Thread Ended!
+2020-02-17 09:26:56,656 - INFO - Bot Thread Started!
+2020-02-17 09:26:56,656 - DEBUG - [START 1th Cycle]
+2020-02-17 09:26:56,657 - INFO - -> Loading Data
+2020-02-17 09:29:14,728 - INFO - Bot Thread Started!
+2020-02-17 09:29:14,728 - DEBUG - [START 1th Cycle]
+2020-02-17 09:29:14,729 - INFO - -> Loading Data
+2020-02-17 09:29:14,729 - INFO - <- Loading Data
+2020-02-17 09:29:14,729 - INFO - -> Check Following
+2020-02-17 09:29:32,566 - INFO -     pinjaman_online_real777 is Following me
+2020-02-17 09:29:51,284 - INFO -     ponysmakeup is not Following me
+2020-02-17 09:29:59,380 - INFO - <- Check Following
+2020-02-17 09:29:59,380 - INFO - Bot Thread Ended!
+2020-02-17 09:31:22,441 - INFO - Bot Thread Started!
+2020-02-17 09:31:22,442 - DEBUG - [START 1th Cycle]
+2020-02-17 09:31:22,443 - INFO - -> Loading Data
+2020-02-17 09:31:22,443 - INFO - <- Loading Data
+2020-02-17 09:31:22,443 - INFO - -> Check Following
+2020-02-17 09:31:40,144 - INFO -     pinjaman_online_real777 is not Following me
+2020-02-17 09:31:58,806 - INFO -     ponysmakeup is not Following me
+2020-02-17 09:32:06,898 - INFO - <- Check Following
+2020-02-17 09:32:06,898 - INFO - -> Remove Followings
+2020-02-17 09:32:25,595 - INFO -     pinjaman_online_real777 removed
+2020-02-17 09:32:44,172 - INFO -     ponysmakeup not removed
+2020-02-17 09:32:52,272 - INFO - <- Remove Followings
+2020-02-17 09:32:52,272 - INFO - -> Start Followings
+2020-02-17 09:33:25,905 - INFO -     Adding -> karimbenzema
+2020-02-17 09:33:37,412 - INFO -     Adding -> silvianajulia
+2020-02-17 09:33:38,414 - INFO - <- Start Followings
+2020-02-17 09:33:38,414 - INFO - -> Save Data
+2020-02-17 09:33:38,416 - INFO - <- Save Data
+2020-02-17 09:33:38,416 - WARNING - Be on idle time until 2020-02-17 10:31:22.442968
+2020-02-17 09:45:11,552 - DEBUG - [START 2th Cycle]
+2020-02-17 09:45:11,552 - INFO - -> Loading Data
+2020-02-17 09:45:11,554 - INFO - <- Loading Data
+2020-02-17 09:45:11,554 - INFO - Bot Thread Ended!
+2020-02-17 10:46:00,082 - INFO - Bot Thread Started!
+2020-02-17 10:46:00,083 - DEBUG - [START 1th Cycle]
+2020-02-17 10:46:00,083 - INFO - -> Loading Data
+2020-02-17 10:46:00,085 - INFO - <- Loading Data
+2020-02-17 10:46:00,085 - INFO - -> Check Following
+2020-02-17 10:46:07,140 - INFO - <- Check Following
+2020-02-17 10:46:07,140 - INFO - Bot Thread Ended!
+2020-02-17 10:49:21,482 - INFO - Bot Thread Started!
+2020-02-17 10:49:21,483 - DEBUG - [START 1th Cycle]
+2020-02-17 10:49:21,483 - INFO - -> Loading Data
+2020-02-17 10:49:21,484 - INFO - <- Loading Data
+2020-02-17 10:49:21,484 - INFO - -> Check Following
+2020-02-17 10:49:28,533 - INFO - <- Check Following
+2020-02-17 10:49:28,533 - INFO - Bot Thread Ended!
+2020-02-17 10:54:27,202 - INFO - Bot Thread Started!
+2020-02-17 10:54:27,202 - DEBUG - [START 1th Cycle]
+2020-02-17 10:54:27,203 - INFO - -> Loading Data
+2020-02-17 10:54:27,203 - INFO - <- Loading Data
+2020-02-17 10:54:27,203 - INFO - -> Check Following
+2020-02-17 10:54:34,257 - INFO - <- Check Following
+2020-02-17 10:54:34,257 - INFO - Bot Thread Ended!
+2020-02-17 10:54:38,083 - INFO - Bot Thread Started!
+2020-02-17 10:54:38,083 - DEBUG - [START 1th Cycle]
+2020-02-17 10:54:38,083 - INFO - -> Loading Data
+2020-02-17 10:54:38,084 - INFO - <- Loading Data
+2020-02-17 10:54:38,084 - INFO - -> Check Following
+2020-02-17 10:54:55,802 - INFO - X   ponysmakeup
+2020-02-17 10:55:14,527 - INFO - X   karimbenzema
+2020-02-17 10:55:33,136 - INFO - X   silvianajulia
+2020-02-17 10:55:41,228 - INFO - <- Check Following
+2020-02-17 10:55:41,228 - INFO - -> Remove Followings
+2020-02-17 10:55:59,830 - INFO - - ponysmakeup
+2020-02-17 10:56:19,483 - INFO - - karimbenzema
+2020-02-17 10:56:39,102 - INFO - - silvianajulia
+2020-02-17 10:56:47,182 - INFO - <- Remove Followings
+2020-02-17 10:56:47,182 - INFO - -> Start Followings
+2020-02-17 10:57:20,788 - INFO -     + paulpogba
+2020-02-17 10:57:32,271 - INFO -     + yantydeliaa
+2020-02-17 10:57:33,274 - INFO - <- Start Followings
+2020-02-17 10:57:33,274 - INFO - -> Save Data
+2020-02-17 10:57:33,276 - INFO - <- Save Data
+2020-02-17 10:57:33,276 - WARNING - Be on idle time until 2020-02-17 11:54:38.083177
+2020-02-17 11:09:20,626 - ERROR - Bot Thread Started!
+2020-02-17 11:09:20,627 - ERROR - [START 1th Cycle]
+2020-02-17 11:09:20,627 - INFO - -> Loading Data
+2020-02-17 11:09:20,628 - INFO - <- Loading Data
+2020-02-17 11:09:20,628 - INFO - -> Check Following
+2020-02-17 11:09:38,260 - CRITICAL -     X paulpogba
+2020-02-17 11:09:56,906 - CRITICAL -     X yantydeliaa
+2020-02-17 11:10:05,004 - INFO - <- Check Following
+2020-02-17 11:10:05,004 - INFO - -> Remove Followings
+2020-02-17 11:10:22,552 - CRITICAL -     ! paulpogba
+2020-02-17 11:10:42,148 - CRITICAL -     - yantydeliaa
+2020-02-17 11:10:50,223 - INFO - <- Remove Followings
+2020-02-17 11:10:50,223 - INFO - -> Start Followings
+2020-02-17 11:11:23,835 - CRITICAL -     + davidbeckham
+2020-02-17 11:11:35,323 - CRITICAL -     + vitaris.vita
+2020-02-17 11:11:36,327 - INFO - <- Start Followings
+2020-02-17 11:11:36,327 - INFO - -> Save Data
+2020-02-17 11:11:36,328 - INFO - <- Save Data
+2020-02-17 11:11:36,328 - WARNING - On idle time until 2020-02-17 11:15:20.627611
+2020-02-17 11:15:21,362 - ERROR - [START 2th Cycle]
+2020-02-17 11:15:21,363 - INFO - -> Loading Data
+2020-02-17 11:15:21,364 - INFO - <- Loading Data
+2020-02-17 11:15:21,364 - INFO - -> Check Following
+2020-02-17 11:15:38,932 - CRITICAL -     X paulpogba
+2020-02-17 11:15:57,560 - CRITICAL -     X davidbeckham
+2020-02-17 11:16:16,158 - CRITICAL -     X vitaris.vita
+2020-02-17 11:16:34,777 - CRITICAL -     O differ.023
+2020-02-17 11:16:53,347 - CRITICAL -     X paulpogba
+2020-02-17 11:17:11,967 - CRITICAL -     X davidbeckham
+2020-02-17 11:17:30,561 - CRITICAL -     X vitaris.vita
+2020-02-17 11:17:38,692 - INFO - <- Check Following
+2020-02-17 11:17:38,692 - INFO - -> Remove Followings
+2020-02-17 11:17:45,750 - INFO - <- Remove Followings
+2020-02-17 11:17:45,750 - ERROR - Bot Thread Ended!
+2020-02-17 11:33:50,136 - ERROR - Bot Thread Started!
+2020-02-17 11:33:50,137 - ERROR - [START 1th Cycle]
+2020-02-17 11:33:50,137 - INFO - -> Loading Data
+2020-02-17 11:33:50,138 - INFO - <- Loading Data
+2020-02-17 11:33:50,138 - INFO - -> Check Following
+2020-02-17 11:34:07,819 - CRITICAL -     O differ.023
+2020-02-17 11:34:26,518 - CRITICAL -     X paulpogba
+2020-02-17 11:34:45,151 - CRITICAL -     X davidbeckham
+2020-02-17 11:35:03,772 - CRITICAL -     X vitaris.vita
+2020-02-17 11:35:11,882 - INFO - <- Check Following
+2020-02-17 11:35:11,882 - INFO - -> Remove Followings
+2020-02-17 11:35:29,461 - CRITICAL -     ! paulpogba
+2020-02-17 11:35:49,141 - CRITICAL -     - davidbeckham
+2020-02-17 11:36:08,771 - CRITICAL -     - vitaris.vita
+2020-02-17 11:36:16,878 - INFO - <- Remove Followings
+2020-02-17 11:36:16,878 - INFO - -> Start Followings
+2020-02-17 11:36:50,517 - CRITICAL -     + masamasa_smaku
+2020-02-17 11:37:02,010 - CRITICAL -     + just.baby
+2020-02-17 11:37:03,012 - INFO - <- Start Followings
+2020-02-17 11:37:03,012 - INFO - -> Save Data
+2020-02-17 11:37:03,013 - INFO - <- Save Data
+2020-02-17 11:37:03,013 - WARNING - On idle time until 2020-02-17 12:33:50.137580
+2020-02-17 11:49:09,137 - ERROR - Bot Thread Ended!
+2020-02-17 11:59:06,562 - ERROR - Bot Thread Started!
+2020-02-17 11:59:06,564 - ERROR - [START 1th Cycle]
+2020-02-17 11:59:06,564 - INFO - -> Loading Data
+2020-02-17 11:59:06,564 - INFO - <- Loading Data
+2020-02-17 11:59:06,565 - INFO - -> Check Following
+2020-02-17 11:59:42,326 - CRITICAL -     X paulpogba
+2020-02-17 12:00:29,424 - ERROR - Bot Thread Started!
+2020-02-17 12:00:29,424 - ERROR - [START 1th Cycle]
+2020-02-17 12:00:29,425 - INFO - -> Loading Data
+2020-02-17 12:00:29,425 - INFO - <- Loading Data
+2020-02-17 12:00:29,425 - INFO - -> Check Following
+2020-02-17 12:00:47,944 - CRITICAL -     X paulpogba
+2020-02-17 12:01:06,547 - CRITICAL -     X masamasa_smaku
+2020-02-17 12:01:25,089 - CRITICAL -     X just.baby
+2020-02-17 12:01:34,188 - INFO - <- Check Following
+2020-02-17 12:01:34,188 - INFO - -> Remove Followings
+2020-02-17 12:01:52,733 - CRITICAL -     ! paulpogba
+2020-02-17 12:02:11,356 - CRITICAL -     ! masamasa_smaku
+2020-02-17 12:02:29,930 - CRITICAL -     ! just.baby
+2020-02-17 12:02:39,050 - INFO - <- Remove Followings
+2020-02-17 12:02:39,050 - INFO - -> Start Followings
+2020-02-17 14:54:09,586 - ERROR - Bot Thread Started!
+2020-02-17 14:54:09,586 - ERROR - [START 1th Cycle]
+2020-02-17 14:54:09,586 - INFO - -> Loading Data
+2020-02-17 14:54:09,589 - INFO - <- Loading Data
+2020-02-17 14:54:09,589 - INFO - -> Check Following
+2020-02-17 14:54:57,230 - ERROR - Bot Thread Started!
+2020-02-17 14:54:57,231 - ERROR - [START 1th Cycle]
+2020-02-17 14:54:57,231 - INFO - -> Loading Data
+2020-02-17 14:54:57,232 - INFO - <- Loading Data
+2020-02-17 14:54:57,232 - INFO - -> Check Following
+2020-02-17 14:55:35,932 - CRITICAL -     X paulpogba
+2020-02-17 14:55:54,600 - CRITICAL -     O masamasa_smaku
+2020-02-17 14:56:13,242 - CRITICAL -     O just.baby
+2020-02-17 14:56:22,360 - INFO - <- Check Following
+2020-02-17 14:56:22,360 - INFO - -> Remove Followings
+2020-02-17 14:56:31,414 - INFO - <- Remove Followings
+2020-02-17 14:56:31,414 - ERROR - Bot Thread Ended!
+2020-02-17 15:04:29,612 - ERROR - Bot Thread Started!
+2020-02-17 15:04:29,613 - ERROR - [START 1th Cycle]
+2020-02-17 15:04:29,613 - INFO - -> Loading Data
+2020-02-17 15:04:29,613 - INFO - <- Loading Data
+2020-02-17 15:04:29,614 - INFO - -> Check Following
+2020-02-17 15:04:48,295 - CRITICAL -     O paulpogba
+2020-02-17 15:05:06,969 - CRITICAL -     X masamasa_smaku
+2020-02-17 15:05:16,127 - INFO - <- Check Following
+2020-02-17 15:05:16,127 - ERROR - Bot Thread Ended!
+2020-02-17 15:13:22,175 - ERROR - Bot Thread Started!
+2020-02-17 15:13:22,177 - ERROR - [START 1th Cycle]
+2020-02-17 15:13:22,177 - INFO - -> Loading Data
+2020-02-17 15:13:22,177 - INFO - <- Loading Data
+2020-02-17 15:13:22,178 - INFO - -> Check Following
+2020-02-17 15:13:31,267 - INFO - <- Check Following
+2020-02-17 15:13:31,267 - INFO - -> Remove Followings
+2020-02-17 15:13:40,324 - INFO - <- Remove Followings
+2020-02-17 15:13:40,324 - INFO - -> Start Followings
+2020-02-17 15:14:16,214 - CRITICAL -     + kimkardashian
+2020-02-17 15:14:27,724 - CRITICAL -     + nike
+2020-02-17 15:14:29,728 - INFO - <- Start Followings
+2020-02-17 15:14:29,728 - INFO - -> Save Data
+2020-02-17 15:14:29,729 - INFO - <- Save Data
+2020-02-17 15:14:29,729 - WARNING - On idle time until 2020-02-17 16:13:22.177543
+2020-02-17 15:14:43,933 - ERROR - Bot Thread Started!
+2020-02-17 15:14:43,933 - ERROR - [START 1th Cycle]
+2020-02-17 15:14:43,933 - INFO - -> Loading Data
+2020-02-17 15:14:43,934 - INFO - <- Loading Data
+2020-02-17 15:14:43,934 - INFO - -> Check Following
+2020-02-17 15:15:02,593 - CRITICAL -     O kimkardashian
+2020-02-17 15:15:21,201 - CRITICAL -     O nike
+2020-02-17 15:15:30,316 - INFO - <- Check Following
+2020-02-17 15:15:30,316 - INFO - -> Remove Followings
+2020-02-17 15:15:39,357 - INFO - <- Remove Followings
+2020-02-17 15:15:39,357 - INFO - -> Start Followings
+2020-02-17 15:19:21,140 - ERROR - Bot Thread Started!
+2020-02-17 15:19:21,140 - ERROR - [START 1th Cycle]
+2020-02-17 15:19:21,141 - INFO - -> Loading Data
+2020-02-17 15:19:21,141 - INFO - <- Loading Data
+2020-02-17 15:19:21,141 - INFO - -> Check Following
+2020-02-17 15:19:39,850 - CRITICAL -     O kimkardashian
+2020-02-17 15:25:31,577 - ERROR - Bot Thread Started!
+2020-02-17 15:25:31,578 - ERROR - [START 1th Cycle]
+2020-02-17 15:25:31,579 - INFO - -> Loading Data
+2020-02-17 15:25:31,579 - INFO - <- Loading Data
+2020-02-17 15:25:31,579 - INFO - -> Check Following
+2020-02-17 15:25:50,260 - CRITICAL -     X kimkardashian
+2020-02-17 15:26:08,897 - CRITICAL -     X nike
+2020-02-17 15:26:18,030 - INFO - <- Check Following
+2020-02-17 15:26:18,030 - INFO - -> Remove Followings
+2020-02-17 15:26:37,660 - CRITICAL -     - kimkardashian
+2020-02-17 15:26:57,220 - CRITICAL -     - nike
+2020-02-17 15:27:06,329 - INFO - <- Remove Followings
+2020-02-17 15:27:06,329 - INFO - -> Start Followings

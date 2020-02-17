@@ -4,7 +4,9 @@ block_cipher = None
 
 added_files = [
     ('banner.png', '.'),
-    ('config.ini', '.')
+    ('config.ini', '.'),
+    ('README.md', '.'),
+    ('Tesseract-OCR', 'Tesseract-OCR')
 ]
 
 a = Analysis(['main.py'],

@@ -36,7 +36,9 @@ class Actor:
     def capture_search_result(self):
         name = self.controller.capture_text('search_result')
         print(name)
-        if 'No users found' in name:
+        if 's found' in name:
+            return False
+        elif 's for you' in name:
             return False
         elif name is '':
             return False
@@ -47,6 +49,6 @@ class Actor:
         return int(self.config.get(val1, val2))
     def save_config(self):
         with open(self.config_filename, 'w') as f:
-            config.write(f + '\n')
+            self.config.write(f + '\n')
         
     
