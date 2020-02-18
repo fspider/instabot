@@ -2,6 +2,8 @@
 
 ### This is project for Instagram App Automaton
 
+![Alt text](/gui.png?raw=true "Instagram Bot")
+
 # UI Description
 
 - Run main.exe
