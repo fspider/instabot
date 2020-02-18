@@ -4,6 +4,7 @@ import time
 import threading
 from datetime import datetime, timedelta
 
+
 class WalkerThread(threading.Thread):
     def __init__(self, logger, parent, name='WalkerThread'):
         # super(WalkerThread, self).__init__()
@@ -151,14 +152,19 @@ class Walker:
         self.file_object = open(self.savedFollowers, 'a')
             # Append 'hello' at the end of file
 
+        self.controller.mouse_click_name('search')
+        time.sleep(1)
+
         for following in self.followings:
             if self._stopevent.isSet():
                 break
             self.controller.mouse_click_name('search')
+            time.sleep(0.5)
+
             self.controller.key_input(following)
             self.controller.waitSleep(self.search_delay)
 
-            [ret, follow_status] = self.actor.capture_search_result()
+            [ret, follow_status] = self.actor.capture_search_result('check')
             if ret and follow_status: # Keep
                 self.followed.append(following)
                 self.file_object.write(following + '\n')
@@ -200,21 +206,23 @@ class Walker:
         self.controller.mouse_click_name('profile')
         self.controller.mouse_click_name('following')
         time.sleep(4)
+        self.controller.mouse_click_name('search')
+        time.sleep(1)
 
         for unfollowing in self.unfollowings:
             if self._stopevent.isSet():
                 break
             self.controller.mouse_click_name('search')
+            time.sleep(0.5)
             self.controller.key_input(unfollowing)
 
             self.controller.waitSleep(self.search_delay)
 
-            [ret, follow_status] = self.actor.capture_search_result()
-            if ret and follow_status == False: # Keep
+            [ret, follow_status] = self.actor.capture_search_result('remove')
+            if ret and follow_status:
                 self.actor.unfollow_one(unfollowing)
                 self.logger.critical('    ' + '- ' + unfollowing)
-
-            else :
+            else:
                 self.followings.append(unfollowing)
                 self.logger.critical('    ' + '! ' + unfollowing)
 
@@ -255,11 +263,12 @@ class Walker:
                 self.controller.key_input(name)
                 self.controller.waitSleep(self.search_delay)
 
-                [ret, follow_status] = self.actor.capture_search_result()
-                if follow_status == True:
+                [ret, follow_status] = self.actor.capture_search_result('start')
+                if follow_status is False:
                     self.logger.info('    ' + 'V ' + name)
                 elif ret:
                     self.controller.mouse_click_name('item_unfollow')
+                    time.sleep(1)
                     self.actor.remove_block()
                     self.followings.append(name)
                     self.logger.critical('    ' + '+ ' + name)

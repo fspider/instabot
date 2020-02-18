@@ -9,6 +9,7 @@ from threading import Thread
 from logger import ConsoleUi
 import signal
 import os
+import multiprocessing
 
 class MainFrm(Frame):
     def __init__(self):

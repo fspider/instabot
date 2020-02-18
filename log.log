@@ -1059,3 +1059,50 @@
 2020-02-18 20:39:33,027 - ERROR - [START 1th Cycle]
 2020-02-18 20:39:33,027 - WARNING - On idle time until 2020-02-18 20:45:33.027467
 2020-02-18 20:39:36,028 - ERROR - Bot Thread Ended!
+2020-02-18 20:57:04,673 - ERROR - Bot Thread Started!
+2020-02-18 20:57:04,677 - ERROR - Opened Follower List !
+2020-02-18 20:57:04,678 - ERROR - [START 1th Cycle]
+2020-02-18 20:57:04,678 - INFO - -> Nothing to Check Following
+2020-02-18 20:57:04,678 - INFO - -> Nothing to Remove Following
+2020-02-18 20:57:04,678 - INFO - -> Start Followings2
+2020-02-18 20:58:02,733 - CRITICAL -     + blogofshiv
+2020-02-18 20:58:29,469 - CRITICAL -     + mirrubayed
+2020-02-18 20:58:56,251 - CRITICAL -     + anitamcnamee
+2020-02-18 21:11:17,885 - ERROR - Bot Thread Started!
+2020-02-18 21:11:17,886 - ERROR - Opened Follower List !
+2020-02-18 21:11:17,887 - ERROR - [START 1th Cycle]
+2020-02-18 21:11:17,887 - INFO - -> Nothing to Check Following
+2020-02-18 21:11:17,887 - INFO - -> Nothing to Remove Following
+2020-02-18 21:11:17,887 - INFO - -> Start Followings2
+2020-02-18 21:12:15,345 - CRITICAL -     + blogofshiv
+2020-02-18 21:15:28,001 - ERROR - Bot Thread Started!
+2020-02-18 21:15:28,003 - ERROR - Opened Follower List !
+2020-02-18 21:15:28,003 - ERROR - [START 1th Cycle]
+2020-02-18 21:15:28,003 - INFO - -> Nothing to Check Following
+2020-02-18 21:15:28,003 - INFO - -> Nothing to Remove Following
+2020-02-18 21:15:28,003 - INFO - -> Start Followings2
+2020-02-18 21:16:25,548 - CRITICAL -     + blogofshiv
+2020-02-18 21:16:50,369 - INFO -     V mirrubayed
+2020-02-18 21:23:00,686 - ERROR - Bot Thread Started!
+2020-02-18 21:23:00,688 - ERROR - Opened Follower List !
+2020-02-18 21:23:00,688 - ERROR - [START 1th Cycle]
+2020-02-18 21:23:00,689 - INFO - -> Nothing to Check Following
+2020-02-18 21:23:00,689 - INFO - -> Nothing to Remove Following
+2020-02-18 21:23:00,689 - INFO - -> Start Followings2
+2020-02-18 21:23:56,720 - INFO -     V blogofshiv
+2020-02-18 21:24:31,901 - CRITICAL -     + mirrubayed
+2020-02-18 21:24:42,427 - INFO - <- Start Followings2
+2020-02-18 21:24:42,427 - WARNING - On idle time until 2020-02-18 21:29:00.688105
+2020-02-18 21:29:03,481 - ERROR - [START 2th Cycle]
+2020-02-18 21:29:03,481 - INFO - -> Check Following
+2020-02-18 21:29:28,639 - CRITICAL -     X mirrubayed
+2020-02-18 21:29:38,065 - INFO - <- Check Following
+2020-02-18 21:29:38,065 - INFO - -> Remove Followings
+2020-02-18 21:30:03,273 - CRITICAL -     ! mirrubayed
+2020-02-18 21:30:12,704 - INFO - <- Remove Followings
+2020-02-18 21:30:12,704 - INFO - -> Start Followings2
+2020-02-18 21:31:08,775 - INFO -     V anitamcnamee
+2020-02-18 21:31:33,527 - INFO -     V sali_hann
+2020-02-18 21:31:44,035 - INFO - <- Start Followings2
+2020-02-18 21:31:44,035 - WARNING - On idle time until 2020-02-18 21:35:03.481506
+2020-02-18 21:33:38,057 - ERROR - Bot Thread Ended!

@@ -33,14 +33,24 @@ class Actor:
     def unfollow_one(self, name):
         self.controller.mouse_click_name('item_unfollow')
 
-    def capture_search_result(self):
-        item_follow = self.controller.capture_text('item_follow')
-        follow_status = False
+    def capture_following_status(self):
         print (item_follow)
         if 'Following' in item_follow:
             follow_status = True
-
         time.sleep(0.5)
+
+
+    def capture_search_result(self, type):
+        str = self.controller.capture_text('item_follow')
+        follow_status = False
+        if type is 'check':
+            follow_status = True
+        elif type is 'remove':
+            if 'Following' in str or 'Requested' in str:
+                follow_status = True
+        else: # 'start'
+            if 'Follow' in str and 'Following' not in str:
+                follow_status = True
 
         name = self.controller.capture_text('search_result')
 
