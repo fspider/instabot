@@ -9,8 +9,9 @@ import pytesseract
 
 class Controller:
 
-    def __init__(self, config):
+    def __init__(self, config, setStatus):
         self.config = config
+        self.setStatus = setStatus
         self.windows_list = []
         self.toplist = []
 
@@ -63,9 +64,13 @@ class Controller:
         time.sleep(self.mouse_delay)
 
     def mouse_click(self, x,y):
-        win32api.SetCursorPos((x,y))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
+        try:
+            win32api.SetCursorPos((x,y))
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
+            time.sleep(0.05)
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
+        except Exception as e:
+            print('Error with Set Cursor ', x, y, e)
     
     def key_input(self, str=''):
         for c in str:
@@ -73,21 +78,25 @@ class Controller:
                 cc = c.lower()
                 win32api.keybd_event(VK_CODE['shift'], 0, 0, 0)
                 win32api.keybd_event(VK_CODE[cc], 0, 0, 0)
+                time.sleep(0.01)
                 win32api.keybd_event(VK_CODE[cc], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
             elif c=='_':
                 win32api.keybd_event(VK_CODE['shift'], 0, 0, 0)
                 win32api.keybd_event(VK_CODE['-'], 0, 0, 0)
+                time.sleep(0.01)
                 win32api.keybd_event(VK_CODE['-'], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
             else:
                 win32api.keybd_event(VK_CODE[c], 0, 0, 0)
+                time.sleep(0.01)
                 win32api.keybd_event(VK_CODE[c], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
     
     def key_remove(self, str):
         for c in range(20):
             win32api.keybd_event(VK_CODE['backspace'], 0, 0, 0)
+            time.sleep(0.01)
             win32api.keybd_event(VK_CODE['backspace'], 0, win32con.KEYEVENTF_KEYUP, 0)
             time.sleep(self.keyinput_delay)
         time.sleep(self.keyboard_delay)
@@ -101,7 +110,7 @@ class Controller:
         time.sleep(3)
         for i in range(4):
             win32api.keybd_event(VK_CODE['down_arrow'], 0, 0, 0)
-            time.sleep(0.005)
+            time.sleep(0.01)
             win32api.keybd_event(VK_CODE['down_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
             time.sleep(self.keyboard_delay)
         win32api.keybd_event(VK_CODE['up_arrow'], 0, 0, 0)
@@ -114,13 +123,16 @@ class Controller:
 
     def item_scroll_down(self):
         win32api.keybd_event(VK_CODE['down_arrow'], 0, 0, 0)
+        time.sleep(0.01)
         win32api.keybd_event(VK_CODE['down_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
         win32api.keybd_event(VK_CODE['down_arrow'], 0, 0, 0)
+        time.sleep(0.01)
         win32api.keybd_event(VK_CODE['down_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
 
         win32api.keybd_event(VK_CODE['up_arrow'], 0, 0, 0)
+        time.sleep(0.01)
         win32api.keybd_event(VK_CODE['up_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
 
@@ -140,11 +152,16 @@ class Controller:
         screenshot = ImageGrab.grab(capture_range)
         screenshot = np.array(screenshot)
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
-        cv2.imshow("Screen", img)
-        cv2.waitKey(1) & 0xFF == ord('q')
+        # cv2.imshow("Screen", img)
+        # cv2.waitKey(1)
 
         name = pytesseract.image_to_string(img, lang='eng')
         return name
+
+    def waitSleep(self, value):
+        self.setStatus('Waiting for ' + str(value) + ' seconds while loading ...')
+        time.sleep(value)
+        self.setStatus('Working ...')
 
 
 

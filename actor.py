@@ -3,12 +3,13 @@ from configparser import ConfigParser
 import time
 class Actor:
     
-    def __init__(self, _stopevent):
+    def __init__(self, _stopevent, setStatus):
         self._stopevent = _stopevent
+        self.setStatus = setStatus
         self.config_filename = 'config.ini'
         self.config = ConfigParser()
         self.config.read(self.config_filename)
-        self.controller = Controller(self.config)
+        self.controller = Controller(self.config, self.setStatus)
 
     def clickButton_Name(self, button_name):
         self.controller.mouse_click_name(button_name)
@@ -22,28 +23,45 @@ class Actor:
         time.sleep(1)
         name = self.controller.capture_text('item_name')
         name_list = name.split()
-        if len(name_list) == 0:
-            return ''
-
         time.sleep(1)
         self.controller.mouse_click_name('back')
+        if len(name_list) == 0:
+            return ''
         self.controller.mouse_click_name('item_follow')
         return name_list[0]
-    
+
     def unfollow_one(self, name):
         self.controller.mouse_click_name('item_unfollow')
 
     def capture_search_result(self):
+        item_follow = self.controller.capture_text('item_follow')
+        follow_status = False
+        print (item_follow)
+        if 'Following' in item_follow:
+            follow_status = True
+
+        time.sleep(0.5)
+
         name = self.controller.capture_text('search_result')
+
+        search_status = True
         print(name)
-        if 's found' in name:
-            return False
-        elif 's for you' in name:
-            return False
+        if 'found' in name:
+            search_status = False
+        elif 'for you' in name:
+            search_status = False
         elif name is '':
-            return False
-        else:
-            return True
+            search_status = False
+
+        return [search_status, follow_status]
+
+    def remove_block(self):
+        while True:
+            name = self.controller.capture_text('blocked')
+            if 'Action Blocked' not in name:
+                break
+            self.controller.mouse_click_name('block_ok')
+            time.sleep(0.5)
 
     def get_config(self, val1, val2):
         return int(self.config.get(val1, val2))

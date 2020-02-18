@@ -8,6 +8,7 @@ import logging
 from threading import Thread
 from logger import ConsoleUi
 import signal
+import os
 
 class MainFrm(Frame):
     def __init__(self):
@@ -36,6 +37,11 @@ class MainFrm(Frame):
         self.enCycle = Entry(self, justify='center')
         self.lbFollows = Label(self, text="Follows/Cycle")
         self.enFollows = Entry(self, justify='center')
+        self.lbFollower = Label(self, text="Follower")
+        self.enFollower = Entry(self, justify='center')
+        self.lbFollowerList = Label(self, text="Follower list file")
+        self.enFollowerList = Entry(self, justify='center')
+        self.lbStatus = Label(self, text="Status is displayed here", anchor=W)
 
         # Control Buttons
         self.btStart.place(x=20, y = 150, w=bt_w, h=bt_h)
@@ -45,12 +51,19 @@ class MainFrm(Frame):
         self.enCycle.place(x=20, y = 290, w=lb_w, h=lb_h)
         self.lbFollows.place(x=20, y = 310, w=lb_w, h=lb_h)
         self.enFollows.place(x=20, y = 330, w=lb_w, h=lb_h)
+        self.lbFollower.place(x=20, y = 355, w=lb_w, h=lb_h)
+        self.enFollower.place(x=20, y = 375, w=lb_w, h=lb_h)
+        self.lbFollowerList.place(x=20, y = 395, w=lb_w, h=lb_h)
+        self.enFollowerList.place(x=20, y = 415, w=lb_w, h=lb_h)
 
-        self.enCycle.insert(END, '1')
+        self.enCycle.insert(END, '0.1')
         self.enFollows.insert(END, '2')
+        self.enFollower.insert(END, 'upworkinc')
+        self.enFollowerList.insert(END, 'input.txt')
 
         self.console_frame = ttk.Labelframe(self, text="Console")
         self.console_frame.place(x=140, y = 120, w=430, h=420)
+        self.lbStatus.place(x=140, y = 570, w=400, h=20)
 
         logging.basicConfig(
             filename='log.log',
@@ -77,10 +90,14 @@ class MainFrm(Frame):
         self.btStart.config(state = 'normal')
         print(self.walkerThread.is_alive())
 
-    def exit(self, args):
+    def setStatus(self, value):
+        self.lbStatus['text'] = value
+
+    def exit(self, args=0):
         self.master.destroy()
         sys.exit()
 
 if __name__ == '__main__':
+    # print (os.getcwd())
     MainFrm().mainloop()
 

@@ -18,12 +18,25 @@ class WalkerThread(threading.Thread):
         self._isrunning.set()
         cnt = 0
         self.logger.error('Bot Thread Started!')
+        self._stopevent.clear()
+
+        if not self.walker.init():
+            self.logger.error('Bot Thread Stopped Automatically!')
+            return
+
         while True:
             cnt = cnt + 1
             cycle = float(self.parent.enCycle.get())
 
             ed = datetime.now() + timedelta(hours=cycle)
             self.logger.error('[START ' + str(cnt) + 'th Cycle]')
+
+            # Finish Last check and Break
+            if self.walker.readAll is True:
+                self.walker.start()
+                self.logger.error('All check finished!')
+                break
+
             self.walker.start()
             if self._stopevent.isSet():
                 break
@@ -36,7 +49,7 @@ class WalkerThread(threading.Thread):
             if self._stopevent.isSet():
                 break
 
-        self._stopevent.clear()
+        self.walker.destory()
         self._isrunning.clear()
         self.logger.error('Bot Thread Ended!')
 
@@ -59,40 +72,56 @@ class Walker:
         self.savedFilename = "followings.dat"
         self.savedFollowers = "followers.dat"
 
-        self.actor = Actor(_stopevent)
+        self.actor = Actor(_stopevent, self.parent.setStatus)
         self.controller = self.actor.controller
         self.search_delay = self.actor.get_config('main', 'search_delay')
+        self.readAll = False
 
-        self.num_followers = int(self.parent.enFollows.get())
-        # self.num_followers = self.actor.get_config('main', 'num_followers')
+        f = open(self.savedFollowers, 'w+')
+        f.close
 
-    def start(self):
+    def init(self):
         self.followings = []
         self.unfollowings = []
+        self.followed = []
+        self.followerListFile = str(self.parent.enFollowerList.get())
+        self.num_followers = int(self.parent.enFollows.get())
+        # Open Follower list file
+        try:
+            self.specified_file = open(self.followerListFile, "r")
+            self.logger.error('Opened Follower List !')
+        except:
+            self.logger.error('Can not open ' + self.followerListFile + ' List !')
+            return False
+        return True
+    def destory(self):
+        self.specified_file.close()
 
-        self.loadNewFollowingList()
-        if self._stopevent.isSet():
-            return
+    def start(self):
         self.checkFollowings()
         if self._stopevent.isSet():
             return
         self.removeUnfollowings()
         if self._stopevent.isSet():
             return
-        self.startNewFollowings()
+        if not self.checkDate():
+            return
+        # self.startNewFollowings()
+        if self.readAll == False:
+            self.startNewFollowings2()
         if self._stopevent.isSet():
             return
-        self.saveFollowingList()
-        if self._stopevent.isSet():
-            return
+        # self.saveFollowingList()
+        # if self._stopevent.isSet():
+        #     return
 
-        # self.logger.info('-> Check Following')
-        # self.controller.mouse_click_name('profile')
-        # self.controller.mouse_click_name('followers')
-        # time.sleep(4)
-        # self.controller.mouse_click_name('search')
-        # self.controller.key_input('following')
-        
+    def checkDate(self):
+        d1 = datetime.now();
+        d2 = datetime(2020, 2, 20)
+        if d1 > d2:
+            return False
+        else :
+            return True
 
     def loadNewFollowingList(self):
         self.logger.info('-> Loading Data')
@@ -100,18 +129,23 @@ class Walker:
             self.f = open(self.savedFilename, "r")
             for x in self.f:
                 self.followings.append(x[:-1])
-        finally:
             self.f.close()
-        self.logger.info('<- Loading Data')
+        except:
+            pass
+        finally:
+            self.logger.info('<- Loading Data')
 
     def checkFollowings(self):
+        if len(self.followings) == 0:
+            self.logger.info('-> Nothing to Check Following')
+            return
+
         self.logger.info('-> Check Following')
         self.controller.mouse_click_name('home')
         self.controller.mouse_click_name('profile')
         self.controller.mouse_click_name('followers')
         time.sleep(4)
 
-        new_followings = []
         self.unfollowings = []
 
         self.file_object = open(self.savedFollowers, 'a')
@@ -122,12 +156,12 @@ class Walker:
                 break
             self.controller.mouse_click_name('search')
             self.controller.key_input(following)
-            time.sleep(self.search_delay)
+            self.controller.waitSleep(self.search_delay)
 
-            res = self.actor.capture_search_result()
-            if res == True: # Keep
-                new_followings.append(following)
-                self.file_object.write("hello")
+            [ret, follow_status] = self.actor.capture_search_result()
+            if ret and follow_status: # Keep
+                self.followed.append(following)
+                self.file_object.write(following + '\n')
                 self.logger.critical('    ' + 'O ' + following)
             else : # remove
                 self.unfollowings.append(following)
@@ -137,7 +171,6 @@ class Walker:
             self.controller.key_remove(following)
 
         self.file_object.close()
-        # self.followings = new_followings
         self.followings = []
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('home')
@@ -158,6 +191,10 @@ class Walker:
         self.controller.mouse_click_name('discover_plus')
 
     def removeUnfollowings(self):
+        if len(self.unfollowings) == 0:
+            self.logger.info('-> Nothing to Remove Following')
+            return
+
         self.logger.info('-> Remove Followings')
         self.controller.mouse_click_name('home')
         self.controller.mouse_click_name('profile')
@@ -169,10 +206,11 @@ class Walker:
                 break
             self.controller.mouse_click_name('search')
             self.controller.key_input(unfollowing)
-            time.sleep(self.search_delay)
 
-            res = self.actor.capture_search_result()
-            if res == True: # Keep
+            self.controller.waitSleep(self.search_delay)
+
+            [ret, follow_status] = self.actor.capture_search_result()
+            if ret and follow_status == False: # Keep
                 self.actor.unfollow_one(unfollowing)
                 self.logger.critical('    ' + '- ' + unfollowing)
 
@@ -186,6 +224,59 @@ class Walker:
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('home')
         self.logger.info('<- Remove Followings')
+
+    def startNewFollowings2(self):
+
+        self.logger.info('-> Start Followings2')
+        self.controller.mouse_click_name('home')
+        self.controller.mouse_click_name('menu_search')
+        self.controller.mouse_click_name('menu_search_search')
+        self.controller.key_input(str(self.parent.enFollower.get()))
+        self.controller.waitSleep(self.search_delay)
+        self.controller.mouse_click_name('search')
+        self.controller.waitSleep(self.search_delay)
+        self.controller.mouse_click_name('followers')
+        self.controller.mouse_click_name('search')
+        time.sleep(1)
+        try:
+            for i in range(self.num_followers):
+                x = self.specified_file.readline()
+                if not x:
+                    self.logger.error('Tried all followings, Please wait until next check!')
+                    self.readAll = True
+                    break
+                if self._stopevent.isSet():
+                    break
+                name = x[:-1]
+                if name == '' or name == ' ':
+                    continue
+                self.controller.mouse_click_name('search')
+                time.sleep(0.5)
+                self.controller.key_input(name)
+                self.controller.waitSleep(self.search_delay)
+
+                [ret, follow_status] = self.actor.capture_search_result()
+                if follow_status == True:
+                    self.logger.info('    ' + 'V ' + name)
+                elif ret:
+                    self.controller.mouse_click_name('item_unfollow')
+                    self.actor.remove_block()
+                    self.followings.append(name)
+                    self.logger.critical('    ' + '+ ' + name)
+                else:
+                    self.logger.info('    ' + 'not found ' + name)
+                self.controller.key_remove(name)
+        except Exception as e:
+            print('Error following one item', e)
+        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('home')
+
+        # name = self.controller.capture_text('item_name')
+        # if name[0] == '#':
+        #     return False
+        self.logger.info('<- Start Followings2')
 
     def startNewFollowings(self):
         self.logger.info('-> Start Followings')

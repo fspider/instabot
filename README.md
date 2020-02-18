@@ -13,9 +13,18 @@
 
 # Test Step
 
-1. Set cycle and follows/cycle value with your option
-2. Press start button
-3. You can press stop or Ctrl+q to exit process
+- App start
+1. Turn on Bluestacks on Windows10
+2. Install and run Instagram App
+3. Login to your Instagram Account and locate on the first main page.
+4. Don't overlap any other window over Bluestacks window
+- Bot Start
+4. Run Instabot main.exe 
+5. Set cycle and follows/cycle value with your option
+6. Set specified one name you want to follow
+7. Filepath saves followers' name list who are following the specified one
+8. Press start button
+9. You can press stop or Ctrl+q to exit process
 
 # Thread step
 
