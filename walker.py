@@ -99,6 +99,7 @@ class Walker:
         self.specified_file.close()
 
     def start(self):
+
         self.checkFollowings()
         if self._stopevent.isSet():
             return
@@ -158,6 +159,7 @@ class Walker:
         for following in self.followings:
             if self._stopevent.isSet():
                 break
+            self.parent.setStatus(following + ' checking ...')
             self.controller.mouse_click_name('search')
             time.sleep(0.5)
 
@@ -169,12 +171,14 @@ class Walker:
                 self.followed.append(following)
                 self.file_object.write(following + '\n')
                 self.logger.critical('    ' + 'O ' + following)
+                self.parent.setStatus(following + ' is following me')
             else : # remove
                 self.unfollowings.append(following)
                 self.logger.critical('    ' + 'X ' + following)
+                self.parent.setStatus(following + ' is not following me')
 
-            self.controller.mouse_click_name('search')
-            self.controller.key_remove(following)
+        self.controller.mouse_click_name('search')
+        self.controller.key_remove(following)
 
         self.file_object.close()
         self.followings = []
@@ -210,6 +214,8 @@ class Walker:
         time.sleep(1)
 
         for unfollowing in self.unfollowings:
+            self.parent.setStatus(unfollowing + ' removing')
+
             if self._stopevent.isSet():
                 break
             self.controller.mouse_click_name('search')
@@ -222,9 +228,11 @@ class Walker:
             if ret and follow_status:
                 self.actor.unfollow_one(unfollowing)
                 self.logger.critical('    ' + '- ' + unfollowing)
+                self.parent.setStatus(unfollowing + ' removed')
             else:
                 self.followings.append(unfollowing)
                 self.logger.critical('    ' + '! ' + unfollowing)
+                self.parent.setStatus(unfollowing + ' not removed')
 
             self.controller.mouse_click_name('search')
             self.controller.key_remove(unfollowing)
@@ -258,22 +266,28 @@ class Walker:
                 name = x[:-1]
                 if name == '' or name == ' ':
                     continue
+                self.parent.setStatus(name + ' - trying to follow')
+
                 self.controller.mouse_click_name('search')
                 time.sleep(0.5)
                 self.controller.key_input(name)
                 self.controller.waitSleep(self.search_delay)
 
                 [ret, follow_status] = self.actor.capture_search_result('start')
-                if follow_status is False:
-                    self.logger.info('    ' + 'V ' + name)
-                elif ret:
+                if not ret:
+                    self.logger.info('    ' + 'N ' + name)
+                    self.parent.setStatus(name + ' - Not found')
+                elif follow_status:
+                    self.logger.info('    ' + 'A ' + name)
+                    self.parent.setStatus(name + ' - Already following')
+                else:
                     self.controller.mouse_click_name('item_unfollow')
                     time.sleep(1)
                     self.actor.remove_block()
                     self.followings.append(name)
                     self.logger.critical('    ' + '+ ' + name)
-                else:
-                    self.logger.info('    ' + 'not found ' + name)
+                    self.parent.setStatus(name + ' - new Following')
+
                 self.controller.key_remove(name)
         except Exception as e:
             print('Error following one item', e)

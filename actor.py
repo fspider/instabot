@@ -41,26 +41,18 @@ class Actor:
 
 
     def capture_search_result(self, type):
-        str = self.controller.capture_text('item_follow')
-        follow_status = False
-        if type is 'check':
-            follow_status = True
-        elif type is 'remove':
-            if 'Following' in str or 'Requested' in str:
-                follow_status = True
-        else: # 'start'
-            if 'Follow' in str and 'Following' not in str:
-                follow_status = True
+
+        key_word = 'item_follow'
+        if type is 'start':
+            key_word = 'specified_follow'
+
+        [follow_status, full_status] = self.controller.capture_color(key_word)
 
         name = self.controller.capture_text('search_result')
 
         search_status = True
         print(name)
-        if 'found' in name:
-            search_status = False
-        elif 'for you' in name:
-            search_status = False
-        elif name is '':
+        if (full_status > 253) or ('found' in name) or ('for you' in name) or (name is ''):
             search_status = False
 
         return [search_status, follow_status]

@@ -2,6 +2,7 @@ from walker import WalkerThread
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 import time
 from PIL import Image, ImageTk
 import logging
@@ -59,8 +60,8 @@ class MainFrm(Frame):
 
         self.enCycle.insert(END, '0.1')
         self.enFollows.insert(END, '2')
-        self.enFollower.insert(END, 'upworkinc')
-        self.enFollowerList.insert(END, 'input.txt')
+        self.enFollower.insert(END, 'garyvee')
+        self.enFollowerList.insert(END, 'D:/garyvee.txt')
 
         self.console_frame = ttk.Labelframe(self, text="Console")
         self.console_frame.place(x=140, y = 120, w=430, h=420)
@@ -80,16 +81,25 @@ class MainFrm(Frame):
         signal.signal(signal.SIGINT, self.exit)
 
     def btStart_clicked(self):
-        self.btStart.config(state='disabled')
-        self.walkerThread = WalkerThread(self.logger, self)
-        self.walkerThread.start()
-    
+        # process = multiprocessing.Process(target=func, args=(i,))
+        # process.start()
+        # process.terminate()
+        # return
+        MsgBox = tk.messagebox.askquestion('Confirm Page Status', 'Did you check if it is on main page now',
+                                           icon='warning')
+        if MsgBox == 'yes':
+            self.btStart.config(state='disabled')
+            self.walkerThread = WalkerThread(self.logger, self)
+            self.walkerThread.start()
+        else:
+            tk.messagebox.showinfo('Confirm Search Page Status', 'Also please check if previous search item was closed')
+
     def btStop_clicked(self):
         self.walkerThread.stop()
         print(self.walkerThread.is_alive())
-        self.walkerThread.join()
-        self.btStart.config(state = 'normal')
-        print(self.walkerThread.is_alive())
+        # self.walkerThread.join()
+        # self.btStart.config(state = 'normal')
+        # print(self.walkerThread.is_alive())
 
     def setStatus(self, value):
         self.lbStatus['text'] = value

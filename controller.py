@@ -136,6 +136,28 @@ class Controller:
         win32api.keybd_event(VK_CODE['up_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
 
+    def capture_color(self, key_name):
+        item_x1 = float(self.config.get('rect', key_name + '_x1'))
+        item_y1 = float(self.config.get('rect', key_name + '_y1'))
+        item_x2 = float(self.config.get('rect', key_name + '_x2'))
+        item_y2 = float(self.config.get('rect', key_name + '_y2'))
+        rect_x1 = int(self.x + self.w * item_x1)
+        rect_y1 = int(self.y + self.h * item_y1)
+        rect_x2 = int(self.x + self.w * item_x2)
+        rect_y2 = int(self.y + self.h * item_y2)
+        capture_range = (rect_x1, rect_y1, rect_x2, rect_y2)
+        screenshot = ImageGrab.grab(capture_range)
+        screenshot = np.array(screenshot)
+        img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
+        avg_color_per_row = np.average(img, axis=0)
+        ac = np.average(avg_color_per_row, axis=0)
+        color_delta = 5
+        print(key_name, '->', ac)
+        full_status = np.average(ac, axis=0)
+        if abs(ac[0] - ac[1]) < color_delta and abs(ac[1] - ac[2]) < color_delta and abs(ac[0] - ac[2]) < color_delta:
+            return [True, full_status]
+        return [False, full_status]
+
     def capture_text(self, key_name) :
         item_x1 = float(self.config.get('rect', key_name + '_x1'))
         item_y1 = float(self.config.get('rect', key_name + '_y1'))
@@ -151,8 +173,13 @@ class Controller:
         # print(capture_range)
         screenshot = ImageGrab.grab(capture_range)
         screenshot = np.array(screenshot)
+
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
-        # cv2.imshow("Screen", img)
+
+        # img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2GRAY)
+        # img = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY)[1]
+
+        # cv2.imshow(key_name, img)
         # cv2.waitKey(1)
 
         name = pytesseract.image_to_string(img, lang='eng')
