@@ -1429,3 +1429,395 @@
 2020-02-19 10:52:02,758 - INFO - -> Start Followings2
 2020-02-19 10:52:44,429 - INFO - <- Start Followings2
 2020-02-19 10:52:44,429 - ERROR - Bot Thread Ended!
+2020-02-19 19:09:27,492 - ERROR - Bot Thread Started!
+2020-02-19 19:09:27,529 - ERROR - Opened Follower List !
+2020-02-19 19:09:27,530 - ERROR - [START 1th Cycle]
+2020-02-19 19:09:27,531 - INFO - -> Nothing to Check Following
+2020-02-19 19:09:27,531 - INFO - -> Nothing to Remove Following
+2020-02-19 19:09:27,531 - INFO - -> Start Followings2
+2020-02-19 19:10:18,370 - ERROR - Bot Thread Started!
+2020-02-19 19:10:18,372 - ERROR - Opened Follower List !
+2020-02-19 19:10:18,373 - ERROR - [START 1th Cycle]
+2020-02-19 19:10:18,373 - INFO - -> Nothing to Check Following
+2020-02-19 19:10:18,373 - INFO - -> Nothing to Remove Following
+2020-02-19 19:10:18,373 - INFO - -> Start Followings2
+2020-02-19 19:11:24,499 - CRITICAL -     + jonasdille
+2020-02-19 19:11:52,403 - CRITICAL -     + nagu.nagz
+2020-02-19 19:12:20,392 - CRITICAL -     + anassaadeh
+2020-02-19 19:12:45,911 - INFO -     N richard.burgess_
+2020-02-19 19:13:13,883 - CRITICAL -     + sofia.heinrich
+2020-02-19 19:13:24,384 - INFO - <- Start Followings2
+2020-02-19 19:13:24,385 - WARNING - On idle time until 2020-02-19 19:16:18.373165
+2020-02-19 19:16:18,423 - ERROR - [START 2th Cycle]
+2020-02-19 19:16:18,423 - INFO - -> Check Following
+2020-02-19 19:16:49,180 - CRITICAL -     X jonasdille
+2020-02-19 19:17:08,608 - CRITICAL -     X nagu.nagz
+2020-02-19 19:17:28,162 - CRITICAL -     O anassaadeh
+2020-02-19 19:17:47,415 - CRITICAL -     X sofia.heinrich
+2020-02-19 19:17:56,872 - INFO - <- Check Following
+2020-02-19 19:17:56,872 - INFO - -> Remove Followings
+2020-02-19 19:25:30,631 - ERROR - Bot Thread Started!
+2020-02-19 19:25:30,634 - ERROR - Opened Follower List !
+2020-02-19 19:25:30,634 - ERROR - [START 1th Cycle]
+2020-02-19 19:25:30,635 - INFO - -> Check Following
+2020-02-19 19:25:43,552 - ERROR - Bot Thread Started!
+2020-02-19 19:25:43,554 - ERROR - Opened Follower List !
+2020-02-19 19:25:43,554 - ERROR - [START 1th Cycle]
+2020-02-19 19:25:43,555 - INFO - -> Check Following
+2020-02-19 19:27:06,016 - ERROR - Bot Thread Started!
+2020-02-19 19:27:06,018 - ERROR - Opened Follower List !
+2020-02-19 19:27:06,019 - ERROR - [START 1th Cycle]
+2020-02-19 19:27:06,019 - INFO - -> Nothing to Check Following
+2020-02-19 19:27:06,019 - INFO - -> Nothing to Remove Following
+2020-02-19 19:27:06,020 - INFO - -> Start Followings2
+2020-02-19 19:28:09,473 - CRITICAL -     + jakeruddd
+2020-02-19 19:28:37,416 - CRITICAL -     + the_f4ck4p
+2020-02-19 19:29:05,392 - CRITICAL -     + devan_miata
+2020-02-19 19:29:33,432 - CRITICAL -     + liam._.606
+2020-02-19 19:29:43,926 - INFO - <- Start Followings2
+2020-02-19 19:29:43,926 - WARNING - On idle time until 2020-02-19 19:33:06.019769
+2020-02-19 19:33:07,962 - ERROR - [START 2th Cycle]
+2020-02-19 19:33:07,963 - INFO - -> Check Following
+2020-02-19 19:33:38,677 - CRITICAL -     X jakeruddd
+2020-02-19 19:33:57,874 - CRITICAL -     X the_f4ck4p
+2020-02-19 19:39:34,788 - ERROR - Bot Thread Started!
+2020-02-19 19:39:34,790 - ERROR - Opened Follower List !
+2020-02-19 19:39:34,791 - ERROR - [START 1th Cycle]
+2020-02-19 19:39:34,791 - INFO - -> Check Following
+2020-02-19 19:40:05,507 - CRITICAL -     X jakeruddd
+2020-02-19 19:40:48,242 - ERROR - Bot Thread Started!
+2020-02-19 19:40:48,244 - ERROR - Opened Follower List !
+2020-02-19 19:40:48,244 - ERROR - [START 1th Cycle]
+2020-02-19 19:40:48,245 - INFO - -> Check Following
+2020-02-19 19:41:18,963 - CRITICAL -     X jakeruddd
+2020-02-19 19:41:45,423 - CRITICAL -     X the_f4ck4p
+2020-02-19 19:42:11,948 - CRITICAL -     X devan_miata
+2020-02-19 19:42:38,452 - CRITICAL -     O jaat_ranwa
+2020-02-19 19:42:47,867 - INFO - <- Check Following
+2020-02-19 19:42:47,867 - INFO - -> Remove Followings
+2020-02-19 19:43:18,547 - CRITICAL -     ! jakeruddd
+2020-02-19 19:43:45,145 - CRITICAL -     ! the_f4ck4p
+2020-02-19 19:44:11,770 - CRITICAL -     ! devan_miata
+2020-02-19 19:44:21,181 - INFO - <- Remove Followings
+2020-02-19 19:44:21,181 - INFO - -> Start Followings2
+2020-02-19 19:53:06,639 - ERROR - Bot Thread Started!
+2020-02-19 19:53:06,640 - ERROR - Opened Follower List !
+2020-02-19 19:53:06,641 - ERROR - [START 1th Cycle]
+2020-02-19 19:53:06,641 - INFO - -> Remove Followings
+2020-02-19 19:53:20,304 - INFO - <- Remove Followings
+2020-02-19 19:53:20,304 - ERROR - Bot Thread Ended!
+2020-02-19 19:53:34,113 - ERROR - Bot Thread Started!
+2020-02-19 19:53:34,115 - ERROR - Opened Follower List !
+2020-02-19 19:53:34,115 - ERROR - [START 1th Cycle]
+2020-02-19 19:53:34,115 - INFO - -> Remove Followings
+2020-02-19 19:54:04,843 - CRITICAL -     ! jakeruddd
+2020-02-19 19:54:32,393 - CRITICAL -     - the_f4ck4p
+2020-02-19 19:54:59,957 - CRITICAL -     - devan_miata
+2020-02-19 19:55:26,392 - CRITICAL -     ! jaat_ranwa
+2020-02-19 19:55:35,797 - INFO - <- Remove Followings
+2020-02-19 19:55:35,797 - INFO - -> Start Followings2
+2020-02-20 11:40:12,092 - ERROR - Bot Thread Started!
+2020-02-20 11:43:35,644 - ERROR - Bot Thread Started!
+2020-02-20 11:43:35,678 - ERROR - Opened Follower List !
+2020-02-20 11:43:35,679 - ERROR - [START 1th Cycle]
+2020-02-20 11:43:36,739 - WARNING - On idle time until 2020-02-20 11:49:35.679168
+2020-02-20 11:43:45,743 - ERROR - Bot Thread Ended!
+2020-02-20 11:44:14,663 - ERROR - Bot Thread Started!
+2020-02-20 11:44:14,667 - ERROR - Opened Follower List !
+2020-02-20 11:44:14,668 - ERROR - [START 1th Cycle]
+2020-02-20 11:44:15,734 - WARNING - On idle time until 2020-02-20 11:50:14.668919
+2020-02-20 11:50:15,807 - ERROR - [START 2th Cycle]
+2020-02-20 11:50:16,867 - WARNING - On idle time until 2020-02-20 11:56:15.807087
+2020-02-20 11:56:16,936 - ERROR - [START 3th Cycle]
+2020-02-20 11:56:17,995 - WARNING - On idle time until 2020-02-20 12:02:16.936201
+2020-02-20 12:02:18,067 - ERROR - [START 4th Cycle]
+2020-02-20 12:02:19,129 - WARNING - On idle time until 2020-02-20 12:08:18.067472
+2020-02-20 12:08:19,197 - ERROR - [START 5th Cycle]
+2020-02-20 12:08:20,260 - WARNING - On idle time until 2020-02-20 12:14:19.197451
+2020-02-20 12:14:20,330 - ERROR - [START 6th Cycle]
+2020-02-20 12:14:21,394 - WARNING - On idle time until 2020-02-20 12:20:20.330574
+2020-02-20 12:20:21,460 - ERROR - [START 7th Cycle]
+2020-02-20 12:20:22,526 - WARNING - On idle time until 2020-02-20 12:26:21.460168
+2020-02-20 12:26:22,596 - ERROR - [START 8th Cycle]
+2020-02-20 12:26:23,656 - WARNING - On idle time until 2020-02-20 12:32:22.596397
+2020-02-20 12:32:23,725 - ERROR - [START 9th Cycle]
+2020-02-20 12:32:24,791 - WARNING - On idle time until 2020-02-20 12:38:23.725039
+2020-02-20 12:38:24,863 - ERROR - [START 10th Cycle]
+2020-02-20 12:38:25,921 - WARNING - On idle time until 2020-02-20 12:44:24.863625
+2020-02-20 12:42:55,972 - ERROR - Bot Thread Ended!
+2020-02-20 12:49:15,157 - ERROR - Bot Thread Started!
+2020-02-20 12:49:15,161 - ERROR - Opened Follower List !
+2020-02-20 12:49:15,162 - ERROR - [START 1th Cycle]
+2020-02-20 12:49:16,723 - WARNING - On idle time until 2020-02-20 12:55:15.162545
+2020-02-20 12:49:45,092 - ERROR - Bot Thread Started!
+2020-02-20 12:49:45,095 - ERROR - Opened Follower List !
+2020-02-20 12:49:45,096 - ERROR - [START 1th Cycle]
+2020-02-20 12:49:46,661 - WARNING - On idle time until 2020-02-20 12:55:45.096058
+2020-02-20 12:52:10,308 - ERROR - Bot Thread Started!
+2020-02-20 12:52:10,312 - ERROR - Opened Follower List !
+2020-02-20 12:52:10,312 - ERROR - [START 1th Cycle]
+2020-02-20 12:52:13,882 - WARNING - On idle time until 2020-02-20 12:58:10.312823
+2020-02-20 12:55:51,328 - ERROR - Bot Thread Started!
+2020-02-20 12:55:51,333 - ERROR - Opened Follower List !
+2020-02-20 12:55:51,333 - ERROR - [START 1th Cycle]
+2020-02-20 12:55:55,962 - WARNING - On idle time until 2020-02-20 13:01:51.333126
+2020-02-20 12:57:22,216 - ERROR - Bot Thread Started!
+2020-02-20 12:57:22,219 - ERROR - Opened Follower List !
+2020-02-20 12:57:22,220 - ERROR - [START 1th Cycle]
+2020-02-20 12:57:23,292 - WARNING - On idle time until 2020-02-20 13:03:22.220760
+2020-02-20 13:03:23,365 - ERROR - [START 2th Cycle]
+2020-02-20 13:03:24,422 - WARNING - On idle time until 2020-02-20 13:09:23.365119
+2020-02-20 13:09:24,488 - ERROR - [START 3th Cycle]
+2020-02-20 13:09:25,555 - WARNING - On idle time until 2020-02-20 13:15:24.488161
+2020-02-20 13:15:25,630 - ERROR - [START 4th Cycle]
+2020-02-20 13:15:26,692 - WARNING - On idle time until 2020-02-20 13:21:25.630414
+2020-02-20 14:37:53,137 - ERROR - Bot Thread Started!
+2020-02-20 14:37:53,185 - ERROR - Opened Follower List !
+2020-02-20 14:37:53,186 - ERROR - [START 1th Cycle]
+2020-02-20 14:37:53,186 - WARNING - On idle time until 2020-02-20 14:43:53.186402
+2020-02-20 14:38:57,036 - ERROR - Bot Thread Started!
+2020-02-20 14:38:57,041 - ERROR - Opened Follower List !
+2020-02-20 14:38:57,041 - ERROR - [START 1th Cycle]
+2020-02-20 14:38:59,330 - WARNING - On idle time until 2020-02-20 14:44:57.041411
+2020-02-20 14:39:35,068 - ERROR - Bot Thread Started!
+2020-02-20 14:39:35,069 - ERROR - Opened Follower List !
+2020-02-20 14:39:35,071 - ERROR - [START 1th Cycle]
+2020-02-20 14:39:35,561 - WARNING - On idle time until 2020-02-20 14:45:35.071545
+2020-02-20 14:40:20,211 - ERROR - Bot Thread Started!
+2020-02-20 14:40:20,212 - ERROR - Opened Follower List !
+2020-02-20 14:40:20,213 - ERROR - [START 1th Cycle]
+2020-02-20 14:40:20,709 - WARNING - On idle time until 2020-02-20 14:46:20.213909
+2020-02-20 14:43:35,890 - ERROR - Bot Thread Started!
+2020-02-20 14:43:35,892 - ERROR - Opened Follower List !
+2020-02-20 14:43:35,893 - ERROR - [START 1th Cycle]
+2020-02-20 14:44:11,622 - ERROR - Bot Thread Started!
+2020-02-20 14:44:11,624 - ERROR - Opened Follower List !
+2020-02-20 14:44:11,624 - ERROR - [START 1th Cycle]
+2020-02-20 14:44:12,118 - WARNING - On idle time until 2020-02-20 14:50:11.624078
+2020-02-20 15:24:55,323 - ERROR - Bot Thread Started!
+2020-02-20 15:24:55,324 - ERROR - Opened Follower List !
+2020-02-20 15:24:55,325 - ERROR - [START 1th Cycle]
+2020-02-20 15:24:55,325 - INFO - -> Nothing to Check Following
+2020-02-20 15:24:55,325 - INFO - -> Nothing to Remove Following
+2020-02-20 15:24:55,841 - WARNING - On idle time until 2020-02-20 15:30:55.324123
+2020-02-20 15:25:01,843 - ERROR - Bot Thread Ended!
+2020-02-20 15:25:19,149 - ERROR - Bot Thread Started!
+2020-02-20 15:25:19,150 - ERROR - Opened Follower List !
+2020-02-20 15:25:19,151 - ERROR - [START 1th Cycle]
+2020-02-20 15:25:19,151 - INFO - -> Nothing to Check Following
+2020-02-20 15:25:19,151 - INFO - -> Nothing to Remove Following
+2020-02-20 15:25:19,662 - WARNING - On idle time until 2020-02-20 15:31:19.151809
+2020-02-20 15:25:28,664 - ERROR - Bot Thread Ended!
+2020-02-20 15:29:32,378 - ERROR - Bot Thread Started!
+2020-02-20 15:29:32,380 - ERROR - Opened Follower List !
+2020-02-20 15:29:32,380 - ERROR - [START 1th Cycle]
+2020-02-20 15:29:32,380 - INFO - -> Nothing to Check Following
+2020-02-20 15:29:32,381 - INFO - -> Nothing to Remove Following
+2020-02-20 15:30:00,119 - ERROR - Bot Thread Started!
+2020-02-20 15:30:00,120 - ERROR - Opened Follower List !
+2020-02-20 15:30:00,120 - ERROR - [START 1th Cycle]
+2020-02-20 15:30:00,120 - INFO - -> Nothing to Check Following
+2020-02-20 15:30:00,120 - INFO - -> Nothing to Remove Following
+2020-02-20 15:30:00,535 - WARNING - On idle time until 2020-02-20 15:36:00.120983
+2020-02-20 15:30:38,646 - ERROR - Bot Thread Started!
+2020-02-20 15:30:38,647 - ERROR - Opened Follower List !
+2020-02-20 15:30:38,648 - ERROR - [START 1th Cycle]
+2020-02-20 15:30:38,648 - INFO - -> Nothing to Check Following
+2020-02-20 15:30:38,648 - INFO - -> Nothing to Remove Following
+2020-02-20 15:30:39,039 - WARNING - On idle time until 2020-02-20 15:36:38.648533
+2020-02-20 15:30:54,121 - ERROR - Bot Thread Started!
+2020-02-20 15:30:54,123 - ERROR - Opened Follower List !
+2020-02-20 15:30:54,123 - ERROR - [START 1th Cycle]
+2020-02-20 15:30:54,123 - INFO - -> Nothing to Check Following
+2020-02-20 15:30:54,124 - INFO - -> Nothing to Remove Following
+2020-02-20 15:30:54,560 - WARNING - On idle time until 2020-02-20 15:36:54.123733
+2020-02-20 15:31:14,858 - ERROR - Bot Thread Started!
+2020-02-20 15:31:14,860 - ERROR - Opened Follower List !
+2020-02-20 15:31:14,861 - ERROR - [START 1th Cycle]
+2020-02-20 15:31:14,861 - INFO - -> Nothing to Check Following
+2020-02-20 15:31:14,861 - INFO - -> Nothing to Remove Following
+2020-02-20 15:31:15,251 - WARNING - On idle time until 2020-02-20 15:37:14.860864
+2020-02-20 15:37:39,601 - ERROR - Bot Thread Started!
+2020-02-20 15:37:39,604 - ERROR - Opened Follower List !
+2020-02-20 15:37:39,604 - ERROR - [START 1th Cycle]
+2020-02-20 15:37:58,035 - ERROR - Bot Thread Started!
+2020-02-20 15:37:58,037 - ERROR - Opened Follower List !
+2020-02-20 15:37:58,037 - ERROR - [START 1th Cycle]
+2020-02-20 15:38:21,852 - ERROR - Bot Thread Started!
+2020-02-20 15:38:21,854 - ERROR - Opened Follower List !
+2020-02-20 15:38:21,855 - ERROR - [START 1th Cycle]
+2020-02-20 15:38:21,937 - WARNING - On idle time until 2020-02-20 15:44:21.855542
+2020-02-20 15:39:06,010 - ERROR - Bot Thread Started!
+2020-02-20 15:39:06,016 - ERROR - Opened Follower List !
+2020-02-20 15:39:06,018 - ERROR - [START 1th Cycle]
+2020-02-20 15:39:06,096 - WARNING - On idle time until 2020-02-20 15:45:06.018115
+2020-02-20 15:39:14,241 - ERROR - Bot Thread Started!
+2020-02-20 15:39:14,243 - ERROR - Opened Follower List !
+2020-02-20 15:39:14,244 - ERROR - [START 1th Cycle]
+2020-02-20 15:39:14,322 - WARNING - On idle time until 2020-02-20 15:45:14.243406
+2020-02-20 15:40:40,690 - ERROR - Bot Thread Started!
+2020-02-20 15:40:40,691 - ERROR - Opened Follower List !
+2020-02-20 15:40:40,691 - ERROR - [START 1th Cycle]
+2020-02-20 15:40:40,786 - WARNING - On idle time until 2020-02-20 15:46:40.691381
+2020-02-20 15:41:11,586 - ERROR - Bot Thread Started!
+2020-02-20 15:41:11,591 - ERROR - Opened Follower List !
+2020-02-20 15:41:11,592 - ERROR - [START 1th Cycle]
+2020-02-20 15:41:11,672 - WARNING - On idle time until 2020-02-20 15:47:11.591096
+2020-02-20 15:41:28,743 - ERROR - Bot Thread Started!
+2020-02-20 15:41:28,744 - ERROR - Opened Follower List !
+2020-02-20 15:41:28,745 - ERROR - [START 1th Cycle]
+2020-02-20 15:41:28,842 - WARNING - On idle time until 2020-02-20 15:47:28.745159
+2020-02-20 15:42:47,330 - ERROR - Bot Thread Started!
+2020-02-20 15:42:47,333 - ERROR - Opened Follower List !
+2020-02-20 15:42:47,333 - ERROR - [START 1th Cycle]
+2020-02-20 15:42:47,421 - WARNING - On idle time until 2020-02-20 15:48:47.333460
+2020-02-20 15:43:07,083 - ERROR - Bot Thread Started!
+2020-02-20 15:43:07,085 - ERROR - Opened Follower List !
+2020-02-20 15:43:07,086 - ERROR - [START 1th Cycle]
+2020-02-20 15:43:07,171 - WARNING - On idle time until 2020-02-20 15:49:07.086367
+2020-02-20 15:43:58,551 - ERROR - Bot Thread Started!
+2020-02-20 15:43:58,554 - ERROR - Opened Follower List !
+2020-02-20 15:43:58,554 - ERROR - [START 1th Cycle]
+2020-02-20 15:43:58,637 - WARNING - On idle time until 2020-02-20 15:49:58.554927
+2020-02-20 15:49:58,709 - ERROR - [START 2th Cycle]
+2020-02-20 15:49:58,779 - WARNING - On idle time until 2020-02-20 15:55:58.709824
+2020-02-20 15:55:58,847 - ERROR - [START 3th Cycle]
+2020-02-20 15:55:58,904 - WARNING - On idle time until 2020-02-20 16:01:58.847902
+2020-02-20 16:01:58,972 - ERROR - [START 4th Cycle]
+2020-02-20 16:01:59,046 - WARNING - On idle time until 2020-02-20 16:07:58.972738
+2020-02-20 16:07:44,112 - ERROR - Bot Thread Ended!
+2020-02-20 16:17:38,563 - ERROR - Bot Thread Started!
+2020-02-20 16:17:38,568 - ERROR - Opened Follower List !
+2020-02-20 16:17:38,568 - ERROR - [START 1th Cycle]
+2020-02-20 16:17:38,649 - WARNING - On idle time until 2020-02-20 16:23:38.568446
+2020-02-20 16:18:56,636 - ERROR - Bot Thread Started!
+2020-02-20 16:18:56,638 - ERROR - Opened Follower List !
+2020-02-20 16:18:56,638 - ERROR - [START 1th Cycle]
+2020-02-20 16:18:56,715 - WARNING - On idle time until 2020-02-20 16:24:56.638472
+2020-02-20 16:19:26,966 - ERROR - Bot Thread Started!
+2020-02-20 16:19:26,968 - ERROR - Opened Follower List !
+2020-02-20 16:19:26,968 - ERROR - [START 1th Cycle]
+2020-02-20 16:19:27,063 - WARNING - On idle time until 2020-02-20 16:25:26.968000
+2020-02-20 16:20:07,522 - ERROR - Bot Thread Started!
+2020-02-20 16:20:07,524 - ERROR - Opened Follower List !
+2020-02-20 16:20:07,525 - ERROR - [START 1th Cycle]
+2020-02-20 16:20:07,621 - WARNING - On idle time until 2020-02-20 16:26:07.525167
+2020-02-20 16:20:38,784 - ERROR - Bot Thread Started!
+2020-02-20 16:20:38,787 - ERROR - Opened Follower List !
+2020-02-20 16:20:38,787 - ERROR - [START 1th Cycle]
+2020-02-20 16:20:38,876 - WARNING - On idle time until 2020-02-20 16:26:38.787849
+2020-02-20 16:20:57,790 - ERROR - Bot Thread Started!
+2020-02-20 16:20:57,791 - ERROR - Opened Follower List !
+2020-02-20 16:20:57,792 - ERROR - [START 1th Cycle]
+2020-02-20 16:20:57,889 - WARNING - On idle time until 2020-02-20 16:26:57.792183
+2020-02-20 16:22:49,583 - ERROR - Bot Thread Started!
+2020-02-20 16:22:49,584 - ERROR - Opened Follower List !
+2020-02-20 16:22:49,585 - ERROR - [START 1th Cycle]
+2020-02-20 16:22:49,695 - WARNING - On idle time until 2020-02-20 16:28:49.585929
+2020-02-20 16:23:12,658 - ERROR - Bot Thread Started!
+2020-02-20 16:23:12,660 - ERROR - Opened Follower List !
+2020-02-20 16:23:12,660 - ERROR - [START 1th Cycle]
+2020-02-20 16:23:12,749 - WARNING - On idle time until 2020-02-20 16:29:12.660806
+2020-02-20 16:23:26,193 - ERROR - Bot Thread Started!
+2020-02-20 16:23:26,194 - ERROR - Opened Follower List !
+2020-02-20 16:23:26,195 - ERROR - [START 1th Cycle]
+2020-02-20 16:23:26,288 - WARNING - On idle time until 2020-02-20 16:29:26.195524
+2020-02-20 16:23:40,936 - ERROR - Bot Thread Started!
+2020-02-20 16:23:40,938 - ERROR - Opened Follower List !
+2020-02-20 16:23:40,940 - ERROR - [START 1th Cycle]
+2020-02-20 16:23:41,038 - WARNING - On idle time until 2020-02-20 16:29:40.940504
+2020-02-20 16:23:53,876 - ERROR - Bot Thread Started!
+2020-02-20 16:23:53,878 - ERROR - Opened Follower List !
+2020-02-20 16:23:53,879 - ERROR - [START 1th Cycle]
+2020-02-20 16:23:53,978 - WARNING - On idle time until 2020-02-20 16:29:53.879515
+2020-02-20 16:24:46,697 - ERROR - Bot Thread Started!
+2020-02-20 16:24:46,700 - ERROR - Opened Follower List !
+2020-02-20 16:24:46,700 - ERROR - [START 1th Cycle]
+2020-02-20 16:24:46,798 - WARNING - On idle time until 2020-02-20 16:30:46.700056
+2020-02-20 16:25:34,956 - ERROR - Bot Thread Started!
+2020-02-20 16:25:34,957 - ERROR - Opened Follower List !
+2020-02-20 16:25:34,961 - ERROR - [START 1th Cycle]
+2020-02-20 16:25:35,043 - WARNING - On idle time until 2020-02-20 16:31:34.961490
+2020-02-20 16:30:49,750 - ERROR - Bot Thread Started!
+2020-02-20 16:30:49,752 - ERROR - Opened Follower List !
+2020-02-20 16:30:49,752 - ERROR - [START 1th Cycle]
+2020-02-20 16:30:50,200 - WARNING - On idle time until 2020-02-20 16:36:49.752801
+2020-02-20 16:36:50,274 - ERROR - [START 2th Cycle]
+2020-02-20 16:36:50,660 - WARNING - On idle time until 2020-02-20 16:42:50.274909
+2020-02-20 16:42:50,727 - ERROR - [START 3th Cycle]
+2020-02-20 16:42:51,126 - WARNING - On idle time until 2020-02-20 16:48:50.727157
+2020-02-20 16:44:27,148 - ERROR - Bot Thread Ended!
+2020-02-20 16:44:59,753 - ERROR - Bot Thread Started!
+2020-02-20 16:44:59,755 - ERROR - Opened Follower List !
+2020-02-20 16:44:59,755 - ERROR - [START 1th Cycle]
+2020-02-20 16:45:30,599 - ERROR - Bot Thread Started!
+2020-02-20 16:45:30,600 - ERROR - Opened Follower List !
+2020-02-20 16:45:30,601 - ERROR - [START 1th Cycle]
+2020-02-20 16:45:30,601 - INFO - -> Start Followings Direct
+2020-02-20 16:46:06,371 - ERROR - Bot Thread Started!
+2020-02-20 16:46:06,375 - ERROR - Opened Follower List !
+2020-02-20 16:46:06,375 - ERROR - [START 1th Cycle]
+2020-02-20 16:46:06,376 - INFO - -> Start Followings Through
+2020-02-20 16:47:12,696 - CRITICAL -     + miguelzone
+2020-02-20 16:47:41,231 - CRITICAL -     + renzo_rabines
+2020-02-20 16:47:51,711 - INFO - <- Start Followings Through
+2020-02-20 16:47:51,711 - WARNING - On idle time until 2020-02-20 16:52:06.375882
+2020-02-20 16:53:07,563 - ERROR - Bot Thread Started!
+2020-02-20 16:53:07,565 - ERROR - Opened Follower List !
+2020-02-20 16:53:07,565 - ERROR - [START 1th Cycle]
+2020-02-20 16:53:07,566 - INFO - -> Check Following
+2020-02-20 16:53:38,888 - CRITICAL -     O webbly_r
+2020-02-20 16:54:05,986 - CRITICAL -     X teddysphotos
+2020-02-20 16:54:15,425 - INFO - <- Check Following
+2020-02-20 16:54:15,425 - INFO - -> Remove Followings
+2020-02-20 16:54:47,808 - CRITICAL -     - teddysphotos
+2020-02-20 16:54:57,221 - INFO - <- Remove Followings
+2020-02-20 16:54:57,221 - WARNING - On idle time until 2020-02-20 16:59:07.565753
+2020-02-20 16:59:09,268 - ERROR - [START 2th Cycle]
+2020-02-20 16:59:09,268 - INFO - -> Check Following
+2020-02-20 16:59:40,504 - CRITICAL -     X webbly_r
+2020-02-20 17:00:07,610 - CRITICAL -     O teddysphotos
+2020-02-20 17:00:17,040 - INFO - <- Check Following
+2020-02-20 17:00:17,040 - INFO - -> Remove Followings
+2020-02-20 17:18:10,825 - ERROR - Bot Thread Started!
+2020-02-20 17:18:10,827 - ERROR - Opened Follower List !
+2020-02-20 17:18:10,827 - ERROR - [START 1th Cycle]
+2020-02-20 17:18:10,828 - INFO - -> Nothing to Check Following
+2020-02-20 17:18:10,828 - INFO - -> Nothing to Remove Following
+2020-02-20 17:18:10,828 - INFO - -> Start Followings Direct
+2020-02-20 17:18:54,491 - INFO -     A miguelzone
+2020-02-20 17:19:46,307 - INFO -     A renzo_rabines
+2020-02-20 17:19:58,923 - INFO - <- Start Followings Direct
+2020-02-20 17:19:58,923 - WARNING - On idle time until 2020-02-20 17:24:10.827882
+2020-02-20 18:56:38,613 - ERROR - Bot Thread Started!
+2020-02-20 18:56:38,615 - ERROR - Opened Follower List !
+2020-02-20 18:56:38,616 - ERROR - [START 1th Cycle]
+2020-02-20 18:56:42,743 - WARNING - On idle time until 2020-02-20 19:02:38.616769
+2020-02-20 18:56:48,745 - ERROR - Bot Thread Ended!
+2020-02-20 18:57:53,942 - ERROR - Bot Thread Started!
+2020-02-20 18:57:53,943 - ERROR - Opened Follower List !
+2020-02-20 18:57:53,944 - ERROR - [START 1th Cycle]
+2020-02-20 18:57:58,079 - WARNING - On idle time until 2020-02-20 19:03:53.944154
+2020-02-20 18:58:01,080 - ERROR - Bot Thread Ended!
+2020-02-20 19:04:36,414 - ERROR - Bot Thread Started!
+2020-02-20 19:04:36,416 - ERROR - Opened Follower List !
+2020-02-20 19:04:36,417 - ERROR - [START 1th Cycle]
+2020-02-20 19:04:36,417 - INFO - -> Nothing to Check Following
+2020-02-20 19:04:36,417 - INFO - -> Nothing to Remove Following
+2020-02-20 19:04:36,417 - INFO - -> Start Followings Direct
+2020-02-20 19:50:38,881 - ERROR - Bot Thread Started!
+2020-02-20 19:50:38,882 - ERROR - Opened Follower List !
+2020-02-20 19:50:38,883 - ERROR - [START 1th Cycle]
+2020-02-20 19:50:39,449 - WARNING - On idle time until 2020-02-20 19:56:38.883463
+2020-02-20 19:52:31,495 - ERROR - Bot Thread Started!
+2020-02-20 19:52:31,496 - ERROR - Opened Follower List !
+2020-02-20 19:52:31,497 - ERROR - [START 1th Cycle]
+2020-02-20 19:52:32,053 - WARNING - On idle time until 2020-02-20 19:58:31.497175
+2020-02-20 19:56:29,082 - ERROR - Bot Thread Started!
+2020-02-20 19:56:29,084 - ERROR - Opened Follower List !
+2020-02-20 19:56:29,086 - ERROR - [START 1th Cycle]
+2020-02-20 19:56:29,684 - WARNING - On idle time until 2020-02-20 20:02:29.086187
+2020-02-20 19:59:58,141 - ERROR - Bot Thread Started!
+2020-02-20 19:59:58,142 - ERROR - Opened Follower List !
+2020-02-20 19:59:58,143 - ERROR - [START 1th Cycle]
+2020-02-20 19:59:58,715 - WARNING - On idle time until 2020-02-20 20:05:58.143442

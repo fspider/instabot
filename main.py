@@ -9,8 +9,6 @@ import logging
 from threading import Thread
 from logger import ConsoleUi
 import signal
-import os
-import multiprocessing
 
 class MainFrm(Frame):
     def __init__(self):
@@ -39,10 +37,19 @@ class MainFrm(Frame):
         self.enCycle = Entry(self, justify='center')
         self.lbFollows = Label(self, text="Follows/Cycle")
         self.enFollows = Entry(self, justify='center')
+        self.lbSearchDelay = Label(self, text="Search Delay")
+        self.enSearchDelay = Entry(self, justify='center')
+
         self.lbFollower = Label(self, text="Follower")
         self.enFollower = Entry(self, justify='center')
         self.lbFollowerList = Label(self, text="Follower list file")
         self.enFollowerList = Entry(self, justify='center')
+        self.lbSearchMethod = Label(self, text="Search Method")
+        self.cbSearchMethod = ttk.Combobox(self, values=[
+                                        "Through",
+                                        "Direct" ,
+                                        # "Random"
+                                        ], justify='center')
         self.lbStatus = Label(self, text="Status is displayed here", anchor=W)
 
         # Control Buttons
@@ -53,15 +60,23 @@ class MainFrm(Frame):
         self.enCycle.place(x=20, y = 290, w=lb_w, h=lb_h)
         self.lbFollows.place(x=20, y = 310, w=lb_w, h=lb_h)
         self.enFollows.place(x=20, y = 330, w=lb_w, h=lb_h)
-        self.lbFollower.place(x=20, y = 355, w=lb_w, h=lb_h)
-        self.enFollower.place(x=20, y = 375, w=lb_w, h=lb_h)
-        self.lbFollowerList.place(x=20, y = 395, w=lb_w, h=lb_h)
-        self.enFollowerList.place(x=20, y = 415, w=lb_w, h=lb_h)
+        self.lbSearchDelay.place(x=20, y = 350, w=lb_w, h=lb_h)
+        self.enSearchDelay.place(x=20, y = 370, w=lb_w, h=lb_h)
+
+        self.lbFollower.place(x=20, y = 395, w=lb_w, h=lb_h)
+        self.enFollower.place(x=20, y = 415, w=lb_w, h=lb_h)
+        self.lbFollowerList.place(x=20, y = 435, w=lb_w, h=lb_h)
+        self.enFollowerList.place(x=20, y = 455, w=lb_w, h=lb_h)
+
+        self.lbSearchMethod.place(x=20, y = 475, w=lb_w, h=lb_h)
+        self.cbSearchMethod.place(x=20, y = 495, w=lb_w, h=lb_h)
 
         self.enCycle.insert(END, '0.1')
         self.enFollows.insert(END, '2')
+        self.enSearchDelay.insert(END, '15')
         self.enFollower.insert(END, 'garyvee')
-        self.enFollowerList.insert(END, 'D:/garyvee.txt')
+        self.enFollowerList.insert(END, 'garyvee.txt')
+        self.cbSearchMethod.current(1)
 
         self.console_frame = ttk.Labelframe(self, text="Console")
         self.console_frame.place(x=140, y = 120, w=430, h=420)
@@ -81,10 +96,6 @@ class MainFrm(Frame):
         signal.signal(signal.SIGINT, self.exit)
 
     def btStart_clicked(self):
-        # process = multiprocessing.Process(target=func, args=(i,))
-        # process.start()
-        # process.terminate()
-        # return
         MsgBox = tk.messagebox.askquestion('Confirm Page Status', 'Did you check if it is on main page now',
                                            icon='warning')
         if MsgBox == 'yes':

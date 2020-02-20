@@ -49,7 +49,7 @@ class Controller:
         self.w = self.position[2] - self.position[0] - self.padding_x
         self.h = self.position[3] - self.position[1] - self.padding_y
 
-    def mouse_click_name(self, button_name):
+    def get_name_pos(self, button_name):
         if not self.face_book:
             if button_name == 'discover':
                 button_name = 'discover_no'
@@ -59,7 +59,26 @@ class Controller:
 
         bt_x = int(self.x + self.w * button_x)
         bt_y = int(self.y + self.h * button_y + self.padding_y)
+        return [bt_x, bt_y]
+
+    def mouse_click_name(self, button_name):
+        [bt_x, bt_y] = self.get_name_pos(button_name)
         self.mouse_click(bt_x, bt_y)
+        # print('clicked ' + button_name + ' button', bt_x, bt_y)
+        time.sleep(self.mouse_delay)
+
+    def mouse_double_click_name(self, button_name):
+        time.sleep(2)
+        [bt_x, bt_y] = self.get_name_pos(button_name)
+
+        self.mouse_click(bt_x, bt_y)
+        time.sleep(1)
+        self.mouse_click(bt_x, bt_y)
+        time.sleep(3)
+        self.mouse_click(bt_x, bt_y)
+        time.sleep(0.5)
+        self.mouse_click(bt_x, bt_y)
+
         # print('clicked ' + button_name + ' button', bt_x, bt_y)
         time.sleep(self.mouse_delay)
 
@@ -67,10 +86,18 @@ class Controller:
         try:
             win32api.SetCursorPos((x,y))
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
-            time.sleep(0.05)
+            time.sleep(0.10)
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
         except Exception as e:
             print('Error with Set Cursor ', x, y, e)
+    def mouse_scroll_name(self, button_name):
+        [bt_x, bt_y] = self.get_name_pos(button_name)
+        for i in range(7):
+            self.mouse_scroll(bt_x, bt_y, -10)
+            time.sleep(0.5)
+
+    def mouse_scroll(self, x, y, clicks):
+        win32api.mouse_event(win32con.MOUSEEVENTF_WHEEL, x, y, clicks, 0)
     
     def key_input(self, str=''):
         for c in str:
@@ -136,19 +163,26 @@ class Controller:
         win32api.keybd_event(VK_CODE['up_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
 
-    def capture_color(self, key_name):
+    def get_screen_shot(self, key_name):
         item_x1 = float(self.config.get('rect', key_name + '_x1'))
         item_y1 = float(self.config.get('rect', key_name + '_y1'))
         item_x2 = float(self.config.get('rect', key_name + '_x2'))
         item_y2 = float(self.config.get('rect', key_name + '_y2'))
         rect_x1 = int(self.x + self.w * item_x1)
-        rect_y1 = int(self.y + self.h * item_y1)
+        rect_y1 = int(self.y + self.h * item_y1 + self.padding_y)
         rect_x2 = int(self.x + self.w * item_x2)
-        rect_y2 = int(self.y + self.h * item_y2)
+        rect_y2 = int(self.y + self.h * item_y2 + self.padding_y)
         capture_range = (rect_x1, rect_y1, rect_x2, rect_y2)
         screenshot = ImageGrab.grab(capture_range)
         screenshot = np.array(screenshot)
+        return screenshot
+
+    def capture_color(self, key_name):
+        screenshot = self.get_screen_shot(key_name)
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
+        # cv2.imshow(key_name, img)
+        # cv2.waitKey(1)
+
         avg_color_per_row = np.average(img, axis=0)
         ac = np.average(avg_color_per_row, axis=0)
         color_delta = 5
@@ -158,32 +192,17 @@ class Controller:
             return [True, full_status]
         return [False, full_status]
 
-    def capture_text(self, key_name) :
-        item_x1 = float(self.config.get('rect', key_name + '_x1'))
-        item_y1 = float(self.config.get('rect', key_name + '_y1'))
-        item_x2 = float(self.config.get('rect', key_name + '_x2'))
-        item_y2 = float(self.config.get('rect', key_name + '_y2'))
-        rect_x1 = int(self.x + self.w * item_x1)
-        rect_y1 = int(self.y + self.h * item_y1)
-        rect_x2 = int(self.x + self.w * item_x2)
-        rect_y2 = int(self.y + self.h * item_y2)
-        capture_range = (rect_x1, rect_y1, rect_x2, rect_y2)
-
-
-        # print(capture_range)
-        screenshot = ImageGrab.grab(capture_range)
-        screenshot = np.array(screenshot)
-
+    def capture_text(self, key_name):
+        screenshot = self.get_screen_shot(key_name)
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
-
-        # img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2GRAY)
-        # img = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY)[1]
-
-        # cv2.imshow(key_name, img)
-        # cv2.waitKey(1)
-
         name = pytesseract.image_to_string(img, lang='eng')
         return name
+    def display(self, key_name):
+        screenshot = self.get_screen_shot(key_name)
+        img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
+        cv2.imshow(key_name, img)
+        cv2.waitKey(1)
+
 
     def waitSleep(self, value):
         self.setStatus('Waiting for ' + str(value) + ' seconds while loading ...')
