@@ -119,7 +119,16 @@ class Controller:
                 time.sleep(0.01)
                 win32api.keybd_event(VK_CODE[c], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
-    
+
+    def ctrl_A(self):
+        time.sleep(1)
+        win32api.keybd_event(VK_CODE['ctrl'], 0, 0, 0)
+        win32api.keybd_event(VK_CODE['a'], 0, 0, 0)
+        time.sleep(0.01)
+        win32api.keybd_event(VK_CODE['a'], 0, win32con.KEYEVENTF_KEYUP, 0)
+        win32api.keybd_event(VK_CODE['ctrl'], 0, win32con.KEYEVENTF_KEYUP, 0)
+        time.sleep(1)
+
     def key_remove(self, str):
         for c in range(20):
             win32api.keybd_event(VK_CODE['backspace'], 0, 0, 0)
@@ -163,15 +172,16 @@ class Controller:
         win32api.keybd_event(VK_CODE['up_arrow'], 0, win32con.KEYEVENTF_KEYUP, 0)
         time.sleep(self.keyboard_delay)
 
-    def get_screen_shot(self, key_name):
-        item_x1 = float(self.config.get('rect', key_name + '_x1'))
-        item_y1 = float(self.config.get('rect', key_name + '_y1'))
-        item_x2 = float(self.config.get('rect', key_name + '_x2'))
-        item_y2 = float(self.config.get('rect', key_name + '_y2'))
+    def get_screen_shot(self, key_name, dx=0, dy=0):
+        item_x1 = min(float(self.config.get('rect', key_name + '_x1')) + dx, 0.99)
+        item_y1 = min(float(self.config.get('rect', key_name + '_y1')) + dy, 0.99)
+        item_x2 = min(float(self.config.get('rect', key_name + '_x2')) + dx, 0.99)
+        item_y2 = min(float(self.config.get('rect', key_name + '_y2')) + dy, 0.99)
         rect_x1 = int(self.x + self.w * item_x1)
         rect_y1 = int(self.y + self.h * item_y1 + self.padding_y)
         rect_x2 = int(self.x + self.w * item_x2)
         rect_y2 = int(self.y + self.h * item_y2 + self.padding_y)
+
         capture_range = (rect_x1, rect_y1, rect_x2, rect_y2)
         screenshot = ImageGrab.grab(capture_range)
         screenshot = np.array(screenshot)
@@ -197,12 +207,60 @@ class Controller:
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
         name = pytesseract.image_to_string(img, lang='eng')
         return name
-    def display(self, key_name):
-        screenshot = self.get_screen_shot(key_name)
+
+    def img_col_count(self,key_name, dx=0, dy=0):
+        screenshot = self.get_screen_shot(key_name, 0, dy)
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
         cv2.imshow(key_name, img)
         cv2.waitKey(1)
+        print(img.shape)
+        ww = img.shape[0]
+        hh = img.shape[1]
+        if ww == 0 or hh == 0:
+            return 0
+        cnt = 0
+        for i in range(ww):
+            for j in range(hh):
+                pixel = img[i][j]
+                if pixel[0] == 240 and pixel[1] == 151 and pixel[2] == 56:
+                    cnt += 1
+        val = 1.0 * cnt / ww / hh
+        print('--', val)
+        return val
+    def scan(self, key_name):
+        max_val = 0
+        max_dy = 0
+        for dy in np.arange(0, 0.2, 0.005):
+            val = self.img_col_count(key_name, 0, dy)
+            if val> max_val:
+                max_val = val
+                max_dy = dy
+        # print('Scan -> result', max_val, max_dy)
+        self.display(key_name, 0, max_dy)
+        time.sleep(1)
+        cv2.destroyWindow(key_name)
+        time.sleep(1)
+        if max_val <0.75:
+            print('---> max_val = ', max_val)
+            return False
+        item_x1 = min(float(self.config.get('rect', key_name + '_x1')), 0.99)
+        item_y1 = min(float(self.config.get('rect', key_name + '_y1')) + max_dy, 0.99)
+        item_x2 = min(float(self.config.get('rect', key_name + '_x2')), 0.99)
+        item_y2 = min(float(self.config.get('rect', key_name + '_y2')) + max_dy, 0.99)
+        item_x = (item_x1 + item_x2) / 2
+        item_y = (item_y1 + item_y2) / 2
+        bt_x = int(self.x + self.w * item_x)
+        bt_y = int(self.y + self.h * item_y + self.padding_y)
+        self.mouse_click(bt_x, bt_y)
+        time.sleep(self.mouse_delay)
+        return True
 
+
+    def display(self, key_name, dx=0, dy=0):
+        screenshot = self.get_screen_shot(key_name, dx, dy)
+        img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
+        cv2.imshow(key_name, img)
+        cv2.waitKey(1)
 
     def waitSleep(self, value):
         self.setStatus('Waiting for ' + str(value) + ' seconds while loading ...')

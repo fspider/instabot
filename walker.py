@@ -103,6 +103,13 @@ class Walker:
         self.specified_file.close()
 
     def start(self):
+        # self.controller.scan('direct_scan')
+        # return
+        # self.controller.mouse_double_click_name('menu_search_search')
+        # self.controller.ctrl_A()
+        # self.followings.append('virat.kohli')
+        # self.followings.append('webbly_r')
+        # self.followings.append('celsoportiolli')
         self.checkFollowings()
         if self._stopevent.isSet():
             return
@@ -350,23 +357,36 @@ class Walker:
                 self.controller.mouse_click_name('search')
                 self.controller.waitSleep(self.search_delay)
                 # self.controller.mouse_click_name('posts')
-                self.controller.mouse_scroll_name('mid')
-                text = self.controller.capture_text('direct_follow')
-                print(text)
+                # self.controller.mouse_scroll_name('mid')
+                # text = self.controller.capture_text('direct_follow')
+                # print(text)
+                # time.sleep(1)
+                # if 'Follow' in text:
+                #     self.controller.mouse_click_name('direct_follow')
+                #     time.sleep(1)
+                #     self.actor.remove_block()
+                #     self.followings.append(name)
+                #     self.logger.critical('    ' + '+ ' + name)
+                #     self.parent.setStatus(name + ' - new Following')
+                # else:
+                #     self.logger.info('    ' + 'A ' + name)
+                #     self.parent.setStatus(name + ' - Already following')
+
+                scan_ret = self.controller.scan('direct_scan')
                 time.sleep(1)
-                if 'Follow' in text:
-                    self.controller.mouse_click_name('direct_follow')
-                    time.sleep(1)
+                if scan_ret:
                     self.actor.remove_block()
                     self.followings.append(name)
                     self.logger.critical('    ' + '+ ' + name)
                     self.parent.setStatus(name + ' - new Following')
                 else:
-                    self.logger.info('    ' + 'A ' + name)
-                    self.parent.setStatus(name + ' - Already following')
+                    self.logger.info('    ' + 'X ' + name)
+                    self.parent.setStatus(name + ' - Not found or Already following')
+
                 self.controller.mouse_click_name('back')
 
                 self.controller.mouse_double_click_name('menu_search_search')
+                self.controller.ctrl_A()
                 time.sleep(2)
                 self.controller.key_remove(name)
         except Exception as e:
