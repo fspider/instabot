@@ -3,7 +3,9 @@ from actor import Actor
 import time
 import threading
 from datetime import datetime, timedelta
+import random
 
+random.seed(1)
 
 class WalkerThread(threading.Thread):
     def __init__(self, logger, parent, name='WalkerThread'):
@@ -14,7 +16,6 @@ class WalkerThread(threading.Thread):
         threading.Thread.__init__(self, name=name)
         self.logger = logger
         self.walker = Walker(parent, self.logger, self._stopevent)
-
     def run(self):
         self._isrunning.set()
         cnt = 0
@@ -75,8 +76,6 @@ class Walker:
 
         self.actor = Actor(_stopevent, self.parent.setStatus)
         self.controller = self.actor.controller
-        self.search_delay = self.actor.get_config('main', 'search_delay')
-
         self.readAll = False
 
         f = open(self.savedFollowers, 'w+')
@@ -88,7 +87,8 @@ class Walker:
         self.followed = []
         self.followerListFile = str(self.parent.enFollowerList.get())
         self.num_followers = int(self.parent.enFollows.get())
-        self.search_delay = int(self.parent.enSearchDelay.get())
+        self.search_delaySt = int(self.parent.enSearchDelaySt.get())
+        self.search_delayEd = int(self.parent.enSearchDelayEd.get())
         self.searchMethod = self.parent.cbSearchMethod.get()
 
         # Open Follower list file
@@ -186,7 +186,7 @@ class Walker:
             time.sleep(1)
 
             self.controller.key_input(following)
-            self.controller.waitSleep(self.search_delay)
+            self.waitSleep()
 
             [ret, follow_status] = self.actor.capture_search_result('item_follow')
             if ret and follow_status: # Keep
@@ -246,7 +246,7 @@ class Walker:
             time.sleep(1)
             self.controller.key_input(unfollowing)
 
-            self.controller.waitSleep(self.search_delay)
+            self.waitSleep()
 
             [ret, follow_status] = self.actor.capture_search_result('item_follow')
             if ret and follow_status:
@@ -275,9 +275,9 @@ class Walker:
         self.controller.mouse_double_click_name('menu_search_search')
         time.sleep(2)
         self.controller.key_input(str(self.parent.enFollower.get()))
-        self.controller.waitSleep(self.search_delay)
+        self.waitSleep()
         self.controller.mouse_click_name('search')
-        self.controller.waitSleep(self.search_delay)
+        self.waitSleep()
         self.controller.mouse_click_name('followers')
         self.controller.mouse_double_click_name('search')
         time.sleep(1)
@@ -300,7 +300,7 @@ class Walker:
                 self.controller.mouse_double_click_name('search')
                 time.sleep(1)
                 self.controller.key_input(name)
-                self.controller.waitSleep(self.search_delay)
+                self.waitSleep()
 
                 [ret, follow_status] = self.actor.capture_search_result('specified_follow')
                 if not ret:
@@ -352,10 +352,10 @@ class Walker:
                 self.controller.mouse_double_click_name('menu_search_search')
                 time.sleep(2)
                 self.controller.key_input(str(name))
-                self.controller.waitSleep(self.search_delay)
+                self.waitSleep()
                 # Check here if exists
                 self.controller.mouse_click_name('search')
-                self.controller.waitSleep(self.search_delay)
+                self.waitSleep()
                 # self.controller.mouse_click_name('posts')
                 # self.controller.mouse_scroll_name('mid')
                 # text = self.controller.capture_text('direct_follow')
@@ -432,3 +432,9 @@ class Walker:
             for name in self.followings:
                 f.write(name + '\n')
         self.logger.info('<- Save Data')
+
+    def waitSleep(self):
+        value = random.uniform(self.search_delaySt, self.search_delayEd)
+        self.parent.setStatus('Waiting for ' + str(int(value)) + ' seconds while loading ...')
+        time.sleep(value)
+        self.parent.setStatus('Working ...')

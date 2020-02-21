@@ -70,11 +70,10 @@ class Controller:
     def mouse_double_click_name(self, button_name):
         time.sleep(2)
         [bt_x, bt_y] = self.get_name_pos(button_name)
-
         self.mouse_click(bt_x, bt_y)
-        time.sleep(1)
+        time.sleep(0.5)
         self.mouse_click(bt_x, bt_y)
-        time.sleep(3)
+        time.sleep(2)
         self.mouse_click(bt_x, bt_y)
         time.sleep(0.5)
         self.mouse_click(bt_x, bt_y)
@@ -262,10 +261,6 @@ class Controller:
         cv2.imshow(key_name, img)
         cv2.waitKey(1)
 
-    def waitSleep(self, value):
-        self.setStatus('Waiting for ' + str(value) + ' seconds while loading ...')
-        time.sleep(value)
-        self.setStatus('Working ...')
 
 
 

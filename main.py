@@ -38,7 +38,9 @@ class MainFrm(Frame):
         self.lbFollows = Label(self, text="Follows/Cycle")
         self.enFollows = Entry(self, justify='center')
         self.lbSearchDelay = Label(self, text="Search Delay")
-        self.enSearchDelay = Entry(self, justify='center')
+        self.enSearchDelaySt = Entry(self, justify='center')
+        self.lbSearchDelayMd = Label(self, text="~")
+        self.enSearchDelayEd = Entry(self, justify='center')
 
         self.lbFollower = Label(self, text="Follower")
         self.enFollower = Entry(self, justify='center')
@@ -61,7 +63,9 @@ class MainFrm(Frame):
         self.lbFollows.place(x=20, y = 310, w=lb_w, h=lb_h)
         self.enFollows.place(x=20, y = 330, w=lb_w, h=lb_h)
         self.lbSearchDelay.place(x=20, y = 350, w=lb_w, h=lb_h)
-        self.enSearchDelay.place(x=20, y = 370, w=lb_w, h=lb_h)
+        self.enSearchDelaySt.place(x=20, y = 370, w=40, h=lb_h)
+        self.lbSearchDelayMd.place(x=65, y = 370, w=10, h=lb_h)
+        self.enSearchDelayEd.place(x=80, y = 370, w=40, h=lb_h)
 
         self.lbFollower.place(x=20, y = 395, w=lb_w, h=lb_h)
         self.enFollower.place(x=20, y = 415, w=lb_w, h=lb_h)
@@ -73,7 +77,8 @@ class MainFrm(Frame):
 
         self.enCycle.insert(END, '0.1')
         self.enFollows.insert(END, '2')
-        self.enSearchDelay.insert(END, '15')
+        self.enSearchDelaySt.insert(END, '12')
+        self.enSearchDelayEd.insert(END, '16')
         self.enFollower.insert(END, 'garyvee')
         self.enFollowerList.insert(END, 'garyvee.txt')
         self.cbSearchMethod.current(1)

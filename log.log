@@ -2115,3 +2115,21 @@
 2020-02-21 16:21:01,732 - CRITICAL -     + lizzyokus
 2020-02-21 16:21:23,292 - INFO - <- Start Followings Direct
 2020-02-21 16:21:23,292 - WARNING - On idle time until 2020-02-21 16:24:17.524286
+2020-02-21 21:47:39,618 - ERROR - Bot Thread Started!
+2020-02-21 21:47:39,620 - ERROR - Opened Follower List !
+2020-02-21 21:47:39,621 - ERROR - [START 1th Cycle]
+2020-02-21 21:47:39,621 - INFO - -> Nothing to Check Following
+2020-02-21 21:47:39,621 - INFO - -> Nothing to Remove Following
+2020-02-21 21:47:39,622 - INFO - -> Start Followings Direct
+2020-02-21 21:49:06,615 - ERROR - Bot Thread Started!
+2020-02-21 21:49:06,618 - ERROR - Opened Follower List !
+2020-02-21 21:49:06,618 - ERROR - [START 1th Cycle]
+2020-02-21 21:49:06,619 - INFO - -> Nothing to Check Following
+2020-02-21 21:49:06,619 - INFO - -> Nothing to Remove Following
+2020-02-21 21:49:06,619 - INFO - -> Start Followings Direct
+2020-02-21 21:50:34,792 - ERROR - Bot Thread Started!
+2020-02-21 21:50:34,797 - ERROR - Opened Follower List !
+2020-02-21 21:50:34,798 - ERROR - [START 1th Cycle]
+2020-02-21 21:50:34,798 - INFO - -> Nothing to Check Following
+2020-02-21 21:50:34,798 - INFO - -> Nothing to Remove Following
+2020-02-21 21:50:34,798 - INFO - -> Start Followings Direct
