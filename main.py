@@ -32,7 +32,9 @@ class MainFrm(Frame):
 
         self.btStart = Button(self, text = "Start", command = self.btStart_clicked)
         self.btStop = Button(self, text = "Stop", command = self.btStop_clicked)
-        self.btSetting = Button(self, text = "Setting", command = self.btStop_clicked)
+        # self.btSetting = Button(self, text = "Setting", command = self.btStop_clicked)
+        self.doUnfollowing = IntVar()
+        self.ckUnfollowing = Checkbutton(self, text="unfollowing", variable=self.doUnfollowing)
         self.lbCycle = Label(self, text="Cycle (hour)")
         self.enCycle = Entry(self, justify='center')
         self.lbFollows = Label(self, text="Follows/Cycle")
@@ -57,7 +59,8 @@ class MainFrm(Frame):
         # Control Buttons
         self.btStart.place(x=20, y = 150, w=bt_w, h=bt_h)
         self.btStop.place(x=20, y = 190, w=bt_w, h=bt_h)
-        self.btSetting.place(x=20, y = 230, w=bt_w, h=bt_h)
+        # self.btSetting.place(x=20, y = 230, w=bt_w, h=bt_h)
+        self.ckUnfollowing.place(x=20, y=240, w=bt_w, h=bt_h)
         self.lbCycle.place(x=20, y = 270, w=lb_w, h=lb_h)
         self.enCycle.place(x=20, y = 290, w=lb_w, h=lb_h)
         self.lbFollows.place(x=20, y = 310, w=lb_w, h=lb_h)

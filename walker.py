@@ -110,12 +110,16 @@ class Walker:
         # self.followings.append('virat.kohli')
         # self.followings.append('webbly_r')
         # self.followings.append('celsoportiolli')
-        self.checkFollowings()
-        if self._stopevent.isSet():
-            return
-        self.removeUnfollowings()
-        if self._stopevent.isSet():
-            return
+        if self.parent.doUnfollowing.get() == 1:
+            self.checkFollowings()
+            if self._stopevent.isSet():
+                return
+            self.removeUnfollowings()
+            if self._stopevent.isSet():
+                return
+        else:
+            self.logger.info('-> Discarded Unfollowing')
+
         if not self.checkDate():
             return
 
