@@ -24,27 +24,27 @@ class Controller:
         win32gui.EnumWindows(enum_win, self.toplist)
         # Game handle
         game_hwnd = 0
-        try:
-            for (hwnd, win_text) in self.windows_list:
-                if "bluestacks" in win_text.lower():
-                    game_hwnd = hwnd
+        # try:
+        #     for (hwnd, win_text) in self.windows_list:
+        #         if "bluestacks" in win_text.lower():
+        #             game_hwnd = hwnd
 
-            self.position = win32gui.GetWindowRect(game_hwnd)
-            self.padding_x = float(self.config.get('points', 'padding_x'))
-            self.padding_y = float(self.config.get('points', 'padding_y'))
-            self.isBlueStack = True
-            print(self.position)
-        except Exception as e:
-            self.isBlueStack = False
-            print('There is no blue stack window!!!')
+        #     self.position = win32gui.GetWindowRect(game_hwnd)
+        #     self.padding_x = float(self.config.get('points', 'padding_x'))
+        #     self.padding_y = float(self.config.get('points', 'padding_y'))
+        #     self.isBlueStack = True
+        #     print(self.position)
+        # except Exception as e:
+        self.isBlueStack = False
+        print('There is no blue stack window!!!')
 
-            x1 = int(self.config.get('main', 'win_x1'))
-            y1 = int(self.config.get('main', 'win_y1'))
-            x2 = int(self.config.get('main', 'win_x2'))
-            y2 = int(self.config.get('main', 'win_y2'))
-            self.position = [x1, y1, x2, y2]
-            self.padding_x = self.padding_y = 0
-            print('Read Window Region From Setting', self.position)
+        x1 = int(self.config.get('main', 'win_x1'))
+        y1 = int(self.config.get('main', 'win_y1'))
+        x2 = int(self.config.get('main', 'win_x2'))
+        y2 = int(self.config.get('main', 'win_y2'))
+        self.position = [x1, y1, x2, y2]
+        self.padding_x = self.padding_y = 0
+        print('Read Window Region From Setting', self.position)
 
         self.x = self.position[0]
         self.y = self.position[1]
@@ -229,7 +229,7 @@ class Controller:
 
         avg_color_per_row = np.average(img, axis=0)
         ac = np.average(avg_color_per_row, axis=0)
-        color_delta = 5
+        color_delta = 15
         print(key_name, '->', ac)
         full_status = np.average(ac, axis=0)
         if abs(ac[0] - ac[1]) < color_delta and abs(ac[1] - ac[2]) < color_delta and abs(ac[0] - ac[2]) < color_delta:
@@ -239,6 +239,8 @@ class Controller:
     def capture_text(self, key_name):
         screenshot = self.get_screen_shot(key_name)
         img = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
+        # cv2.imshow(key_name, img)
+        # cv2.waitKey(1)
         name = pytesseract.image_to_string(img, lang='eng')
         return name
 
@@ -253,10 +255,12 @@ class Controller:
         if ww == 0 or hh == 0:
             return 0
         cnt = 0
+        delta = 10
         for i in range(ww):
             for j in range(hh):
                 pixel = img[i][j]
-                if pixel[0] == 240 and pixel[1] == 151 and pixel[2] == 56:
+                # 239 152 49 
+                if abs(pixel[0] - 240)<delta and (pixel[1] - 151)<delta and (pixel[2] - 56) < delta:
                     cnt += 1
         val = 1.0 * cnt / ww / hh
         print('--', val)
@@ -264,7 +268,7 @@ class Controller:
     def scan(self, key_name):
         max_val = 0
         max_dy = 0
-        for dy in np.arange(0, 0.2, 0.005):
+        for dy in np.arange(0, 0.38, 0.005):
             val = self.img_col_count(key_name, 0, dy)
             if val> max_val:
                 max_val = val

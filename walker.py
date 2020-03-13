@@ -108,6 +108,28 @@ class Walker:
         self.specified_file.close()
 
     def start(self):
+        # OK for through checking
+        # self.controller.mouse_click_name('home')
+        # self.controller.mouse_click_name('menu_search')
+        # self.controller.mouse_click_name('menu_search_search')
+        # self.controller.mouse_click_name('search')
+        # self.controller.mouse_click_name('followers')
+        # self.controller.mouse_click_name('search')
+        # self.controller.mouse_click_name('item_unfollow')
+        # [ret, follow_status] = self.actor.capture_search_result('specified_follow')
+        # print (ret, follow_status)
+        # self.startNewFollowings_Through()
+        # self.controller.mouse_click_name('back')
+
+        # OK for direct checking
+        # scan_ret = self.controller.scan('direct_scan')
+        # print(scan_ret)
+
+        # OK for unfollow
+        self.controller.mouse_click_name('search_cancel')
+        return
+
+
         if self.controller.isBlueStack:
             self.controller.mouse_icon_double_click('icon')
             wait_start = int(self.actor.get_config('main', 'wait_start'))
@@ -341,7 +363,7 @@ class Walker:
             print('Error following one item', e)
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('back')
-        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('search_cancel')
         self.controller.mouse_click_name('home')
 
         # name = self.controller.capture_text('item_name')
@@ -410,7 +432,7 @@ class Walker:
                 self.controller.key_remove(name)
         except Exception as e:
             print('Error following one item', e)
-        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('search_cancel')
         self.controller.mouse_click_name('home')
         self.logger.info('<- Start Followings Direct')
 
