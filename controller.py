@@ -9,9 +9,11 @@ import pytesseract
 
 class Controller:
 
-    def __init__(self, config, setStatus):
+    def __init__(self, config, setStatus, parent):
         self.config = config
         self.setStatus = setStatus
+        self.parent = parent
+
         self.windows_list = []
         self.toplist = []
 
@@ -22,15 +24,35 @@ class Controller:
         win32gui.EnumWindows(enum_win, self.toplist)
         # Game handle
         game_hwnd = 0
-        for (hwnd, win_text) in self.windows_list:
-            if "bluestacks" in win_text.lower():
-                game_hwnd = hwnd
+        try:
+            for (hwnd, win_text) in self.windows_list:
+                if "bluestacks" in win_text.lower():
+                    game_hwnd = hwnd
 
-        self.position = win32gui.GetWindowRect(game_hwnd)
-        print(self.position)
+            self.position = win32gui.GetWindowRect(game_hwnd)
+            self.padding_x = float(self.config.get('points', 'padding_x'))
+            self.padding_y = float(self.config.get('points', 'padding_y'))
+            self.isBlueStack = True
+            print(self.position)
+        except Exception as e:
+            self.isBlueStack = False
+            print('There is no blue stack window!!!')
 
-        self.padding_x = float(self.config.get('points', 'padding_x'))
-        self.padding_y = float(self.config.get('points', 'padding_y'))
+            x1 = int(self.config.get('main', 'win_x1'))
+            y1 = int(self.config.get('main', 'win_y1'))
+            x2 = int(self.config.get('main', 'win_x2'))
+            y2 = int(self.config.get('main', 'win_y2'))
+            self.position = [x1, y1, x2, y2]
+            self.padding_x = self.padding_y = 0
+            print('Read Window Region From Setting', self.position)
+
+        self.x = self.position[0]
+        self.y = self.position[1]
+        self.w = self.position[2] - self.position[0] - self.padding_x
+        self.h = self.position[3] - self.position[1] - self.padding_y
+
+
+
         self.mouse_delay = float(self.config.get('main', 'mouse_delay'))
         self.keyinput_delay = float(self.config.get('main', 'keyinput_delay'))
         self.keyremove_delay = float(self.config.get('main', 'keyremove_delay'))
@@ -41,13 +63,8 @@ class Controller:
         else:
             self.face_book = False
 
-
         pytesseract.pytesseract.tesseract_cmd = self.config.get('main', 'tesseract_path')
 
-        self.x = self.position[0]
-        self.y = self.position[1]
-        self.w = self.position[2] - self.position[0] - self.padding_x
-        self.h = self.position[3] - self.position[1] - self.padding_y
 
     def get_name_pos(self, button_name):
         if not self.face_book:
@@ -89,6 +106,24 @@ class Controller:
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
         except Exception as e:
             print('Error with Set Cursor ', x, y, e)
+
+    def mouse_icon_double_click(self, name):
+        button_x = int(self.config.get('points', name + '_x'))
+        button_y = int(self.config.get('points', name + '_y'))
+        self.mouse_click(button_x, button_y);
+        time.sleep(0.1)
+        self.mouse_click(button_x, button_y);
+
+    def close_icon_click(self, name):
+        st_x = float(self.config.get('points', name+'_st_x'))
+        ed_x = float(self.config.get('points', name+'_ed_x'))
+        y = int(self.config.get('points', name + '_y')) + self.y
+
+        for dx in np.arange(st_x, ed_x, 0.005):
+            bx = int(self.x + self.w * dx)
+            self.mouse_click(bx, y)
+            time.sleep(0.6)
+
     def mouse_scroll_name(self, button_name):
         [bt_x, bt_y] = self.get_name_pos(button_name)
         for i in range(7):

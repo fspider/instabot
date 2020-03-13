@@ -1,10 +1,7 @@
 from tkinter import *
 import tkinter as tk
-root = Tk()
-# root.overrideredirect(True)
 
-
-class MainFrm(Frame):
+class RegionFrm(Frame):
     def __init__(self):
         tk.Frame.__init__(self)
 
@@ -25,8 +22,7 @@ class MainFrm(Frame):
         lv_w = self.winfo_width()
         lv_h = self.winfo_height()
         print(lv_x, lv_y)
-        self.master.destroy()
+        self.destroy()
 
 if __name__ == '__main__':
-    # print (os.getcwd())
-    MainFrm().mainloop()
+    RegionFrm().mainloop()

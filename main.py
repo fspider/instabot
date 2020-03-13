@@ -9,6 +9,7 @@ import logging
 from threading import Thread
 from logger import ConsoleUi
 import signal
+from configparser import ConfigParser
 
 class MainFrm(Frame):
     def __init__(self):
@@ -16,13 +17,17 @@ class MainFrm(Frame):
         tk.Frame.__init__(self)
         self.pack(fill=BOTH, expand=1)
         self.master.title("InstaBot")
-        self.master.geometry("600x600+10+20")
+        self.master.geometry("600x600+50+100")
 
         load = Image.open('banner.png')
         render = ImageTk.PhotoImage(load)
         imgBanner = Label(self, image=render)
         imgBanner.image = render
         imgBanner.place(x=0, y=0, w=600, h=100)
+        self.position = None
+        self.config_filename = 'config.ini'
+        self.config = ConfigParser()
+        self.config.read(self.config_filename)
 
         bt_w = 100
         bt_h =30
@@ -32,13 +37,21 @@ class MainFrm(Frame):
 
         self.btStart = Button(self, text = "Start", command = self.btStart_clicked)
         self.btStop = Button(self, text = "Stop", command = self.btStop_clicked)
-        # self.btSetting = Button(self, text = "Setting", command = self.btStop_clicked)
+        self.btSetting = Button(self, text = "Region", command = self.btSetting_clicked)
+
         self.doUnfollowing = IntVar()
         self.ckUnfollowing = Checkbutton(self, text="unfollowing", variable=self.doUnfollowing)
+
         self.lbCycle = Label(self, text="Cycle (hour)")
-        self.enCycle = Entry(self, justify='center')
+        self.enCycleSt = Entry(self, justify='center')
+        self.lbCycleMd = Label(self, text="~")
+        self.enCycleEd = Entry(self, justify='center')
+
         self.lbFollows = Label(self, text="Follows/Cycle")
-        self.enFollows = Entry(self, justify='center')
+        self.enFollowsSt = Entry(self, justify='center')
+        self.lbFollowsMd = Label(self, text="~")
+        self.enFollowsEd = Entry(self, justify='center')
+
         self.lbSearchDelay = Label(self, text="Search Delay")
         self.enSearchDelaySt = Entry(self, justify='center')
         self.lbSearchDelayMd = Label(self, text="~")
@@ -57,14 +70,21 @@ class MainFrm(Frame):
         self.lbStatus = Label(self, text="Status is displayed here", anchor=W)
 
         # Control Buttons
-        self.btStart.place(x=20, y = 150, w=bt_w, h=bt_h)
-        self.btStop.place(x=20, y = 190, w=bt_w, h=bt_h)
-        # self.btSetting.place(x=20, y = 230, w=bt_w, h=bt_h)
+        self.btStart.place(x=20, y = 120, w=bt_w, h=bt_h)
+        self.btStop.place(x=20, y = 160, w=bt_w, h=bt_h)
+        self.btSetting.place(x=20, y = 200, w=bt_w, h=bt_h)
         self.ckUnfollowing.place(x=20, y=240, w=bt_w, h=bt_h)
+
         self.lbCycle.place(x=20, y = 270, w=lb_w, h=lb_h)
-        self.enCycle.place(x=20, y = 290, w=lb_w, h=lb_h)
+        self.enCycleSt.place(x=20, y = 290, w=40, h=lb_h)
+        self.lbCycleMd.place(x=65, y = 290, w=10, h=lb_h)
+        self.enCycleEd.place(x=80, y = 290, w=40, h=lb_h)
+
         self.lbFollows.place(x=20, y = 310, w=lb_w, h=lb_h)
-        self.enFollows.place(x=20, y = 330, w=lb_w, h=lb_h)
+        self.enFollowsSt.place(x=20, y = 330, w=40, h=lb_h)
+        self.lbFollowsMd.place(x=65, y = 330, w=10, h=lb_h)
+        self.enFollowsEd.place(x=80, y = 330, w=40, h=lb_h)
+
         self.lbSearchDelay.place(x=20, y = 350, w=lb_w, h=lb_h)
         self.enSearchDelaySt.place(x=20, y = 370, w=40, h=lb_h)
         self.lbSearchDelayMd.place(x=65, y = 370, w=10, h=lb_h)
@@ -78,8 +98,10 @@ class MainFrm(Frame):
         self.lbSearchMethod.place(x=20, y = 475, w=lb_w, h=lb_h)
         self.cbSearchMethod.place(x=20, y = 495, w=lb_w, h=lb_h)
 
-        self.enCycle.insert(END, '0.1')
-        self.enFollows.insert(END, '2')
+        self.enCycleSt.insert(END, '0.1')
+        self.enCycleEd.insert(END, '0.2')
+        self.enFollowsSt.insert(END, '2')
+        self.enFollowsEd.insert(END, '5')
         self.enSearchDelaySt.insert(END, '12')
         self.enSearchDelayEd.insert(END, '16')
         self.enFollower.insert(END, 'garyvee')
@@ -107,8 +129,8 @@ class MainFrm(Frame):
         MsgBox = tk.messagebox.askquestion('Confirm Page Status', 'Did you check if it is on main page now',
                                            icon='warning')
         if MsgBox == 'yes':
-            self.btStart.config(state='disabled')
             self.walkerThread = WalkerThread(self.logger, self)
+            self.btStart.config(state='disabled')
             self.walkerThread.start()
         else:
             tk.messagebox.showinfo('Confirm Search Page Status', 'Also please check if previous search item was closed')
@@ -119,6 +141,40 @@ class MainFrm(Frame):
         # self.walkerThread.join()
         # self.btStart.config(state = 'normal')
         # print(self.walkerThread.is_alive())
+    def btSetting_clicked(self):
+        tk.messagebox.showinfo('Select Instagram Range', 'Please move and resize to fit instagram app window')
+
+        x1 = int(self.config.get('main', 'win_x1'))
+        y1 = int(self.config.get('main', 'win_y1'))
+        x2 = int(self.config.get('main', 'win_x2'))
+        y2 = int(self.config.get('main', 'win_y2'))
+
+        self.regionWin = Toplevel(self)
+        self.regionWin.configure(background='#ff0000')
+        self.regionWin.geometry(str(x2-x1)+"x" + str(y2-y1) + "+" + str(x1) + "+" + str(y1))
+        self.regionWin.attributes('-alpha', 0.5)
+        self.regionWin.wm_attributes('-topmost', True)
+
+        self.btOkay = Button(self.regionWin, text = "O K", command = self.btOk_clicked)
+        self.btOkay.place(x=50, y=50, w=80, h=30)
+
+    def btOk_clicked(self):
+        lv_x = self.regionWin.winfo_rootx()
+        lv_y = self.regionWin.winfo_rooty()
+        lv_w = self.regionWin.winfo_width()
+        lv_h = self.regionWin.winfo_height()
+        print(lv_x, lv_y, lv_w, lv_h)
+        self.regionWin.destroy()
+        self.position = [lv_x, lv_y, lv_x+lv_w, lv_y+lv_h]
+
+        self.config.set('main', 'win_x1', str(self.position[0]))
+        self.config.set('main', 'win_y1', str(self.position[1]))
+        self.config.set('main', 'win_x2', str(self.position[2]))
+        self.config.set('main', 'win_y2', str(self.position[3]))
+        with open(self.config_filename, 'w') as f:
+            self.config.write(f)
+
+        return self.position
 
     def setStatus(self, value):
         self.lbStatus['text'] = value

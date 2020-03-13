@@ -3,13 +3,14 @@ from configparser import ConfigParser
 import time
 class Actor:
     
-    def __init__(self, _stopevent, setStatus):
+    def __init__(self, _stopevent, setStatus, parent):
         self._stopevent = _stopevent
         self.setStatus = setStatus
+        self.parent = parent
         self.config_filename = 'config.ini'
         self.config = ConfigParser()
         self.config.read(self.config_filename)
-        self.controller = Controller(self.config, self.setStatus)
+        self.controller = Controller(self.config, self.setStatus, self.parent)
 
     def clickButton_Name(self, button_name):
         self.controller.mouse_click_name(button_name)

@@ -28,7 +28,9 @@ class WalkerThread(threading.Thread):
 
         while True:
             cnt = cnt + 1
-            cycle = float(self.parent.enCycle.get())
+            self.cycleSt = float(self.parent.enCycleSt.get())
+            self.cycleEd = float(self.parent.enCycleEd.get())
+            cycle = random.uniform(self.cycleSt, self.cycleEd)
 
             ed = datetime.now() + timedelta(hours=cycle)
             self.logger.error('[START ' + str(cnt) + 'th Cycle]')
@@ -74,7 +76,7 @@ class Walker:
         self.savedFilename = "followings.dat"
         self.savedFollowers = "followers.dat"
 
-        self.actor = Actor(_stopevent, self.parent.setStatus)
+        self.actor = Actor(_stopevent, self.parent.setStatus, self.parent)
         self.controller = self.actor.controller
         self.readAll = False
 
@@ -86,9 +88,12 @@ class Walker:
         self.unfollowings = []
         self.followed = []
         self.followerListFile = str(self.parent.enFollowerList.get())
-        self.num_followers = int(self.parent.enFollows.get())
+
+        self.num_followerSt = int(self.parent.enFollowsSt.get())
+        self.num_followerEd = int(self.parent.enFollowsEd.get())
         self.search_delaySt = int(self.parent.enSearchDelaySt.get())
         self.search_delayEd = int(self.parent.enSearchDelayEd.get())
+
         self.searchMethod = self.parent.cbSearchMethod.get()
 
         # Open Follower list file
@@ -103,6 +108,11 @@ class Walker:
         self.specified_file.close()
 
     def start(self):
+        if self.controller.isBlueStack:
+            self.controller.mouse_icon_double_click('icon')
+            wait_start = int(self.actor.get_config('main', 'wait_start'))
+            time.sleep(wait_start)
+
         # self.controller.scan('direct_scan')
         # return
         # self.controller.mouse_double_click_name('menu_search_search')
@@ -110,6 +120,8 @@ class Walker:
         # self.followings.append('virat.kohli')
         # self.followings.append('webbly_r')
         # self.followings.append('celsoportiolli')
+
+        self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
         if self.parent.doUnfollowing.get() == 1:
             self.checkFollowings()
             if self._stopevent.isSet():
@@ -135,15 +147,18 @@ class Walker:
         if self._stopevent.isSet():
             return
 
-
+        if self.controller.isBlueStack:
+            self.controller.close_icon_click('close')
+            wait_end = int(self.actor.get_config('main', 'wait_end'))
+            time.sleep(wait_end)
 
         # self.saveFollowingList()
         # if self._stopevent.isSet():
         #     return
 
     def checkDate(self):
-        d1 = datetime.now();
-        d2 = datetime(2020, 3, 1)
+        d1 = datetime.now()
+        d2 = datetime(2020, 3, 20)
         if d1 > d2:
             return False
         else :
@@ -415,7 +430,6 @@ class Walker:
 
         # self.controller.mouse_click_name('discover_suggested')
         self.controller.item_scroll_prepare()
-
 
         for i in range(self.num_followers):
             if self._stopevent.isSet():
