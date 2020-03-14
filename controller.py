@@ -149,9 +149,11 @@ class Controller:
                 win32api.keybd_event(VK_CODE['-'], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
             else:
+                print(c)
                 win32api.keybd_event(VK_CODE[c], 0, 0, 0)
-                time.sleep(0.01)
+                time.sleep(0.1)
                 win32api.keybd_event(VK_CODE[c], 0, win32con.KEYEVENTF_KEYUP, 0)
+            time.sleep(0.1)
         time.sleep(self.keyboard_delay)
 
     def ctrl_A(self):

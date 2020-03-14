@@ -151,7 +151,7 @@ class MainFrm(Frame):
 
         self.regionWin = Toplevel(self)
         self.regionWin.configure(background='#ff0000')
-        self.regionWin.geometry(str(x2-x1)+"x" + str(y2-y1) + "+" + str(x1) + "+" + str(y1))
+        self.regionWin.geometry(str(x2-x1)+"x" + str(y2-y1) + "+" + str(x1-8) + "+" + str(y1-31))
         self.regionWin.attributes('-alpha', 0.5)
         self.regionWin.wm_attributes('-topmost', True)
 

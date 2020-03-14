@@ -108,6 +108,8 @@ class Walker:
         self.specified_file.close()
 
     def start(self):
+        self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
+
         # OK for through checking
         # self.controller.mouse_click_name('home')
         # self.controller.mouse_click_name('menu_search')
@@ -126,7 +128,20 @@ class Walker:
         # print(scan_ret)
 
         # OK for unfollow
-        self.controller.mouse_click_name('search_cancel')
+        # self.controller.mouse_click_name('search_cancel')
+        # self.controller.mouse_click_name('profile')
+        # self.controller.mouse_click_name('following')
+
+        # CHECK AGAIN
+        # self.actor.unfollow_one('aa')
+
+        # TO DO
+        # [ret, follow_status] = self.actor.capture_search_result('item_follow')
+
+        # self.startNewFollowings_Direct()
+        self.controller.mouse_double_click_name('menu_search_search')
+        time.sleep(2)
+        self.controller.key_input('a1111abc_x')
         return
 
 
@@ -143,7 +158,6 @@ class Walker:
         # self.followings.append('webbly_r')
         # self.followings.append('celsoportiolli')
 
-        self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
         if self.parent.doUnfollowing.get() == 1:
             self.checkFollowings()
             if self._stopevent.isSet():
