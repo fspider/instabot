@@ -149,11 +149,10 @@ class Controller:
                 win32api.keybd_event(VK_CODE['-'], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
             else:
-                print(c)
                 win32api.keybd_event(VK_CODE[c], 0, 0, 0)
-                time.sleep(0.1)
+                time.sleep(0.01)
                 win32api.keybd_event(VK_CODE[c], 0, win32con.KEYEVENTF_KEYUP, 0)
-            time.sleep(0.1)
+            time.sleep(0.05)
         time.sleep(self.keyboard_delay)
 
     def ctrl_A(self):
@@ -166,6 +165,8 @@ class Controller:
         time.sleep(1)
 
     def key_remove(self, str):
+        self.ctrl_A()
+        time.sleep(2)
         for c in range(20):
             win32api.keybd_event(VK_CODE['backspace'], 0, 0, 0)
             time.sleep(0.01)
@@ -232,7 +233,7 @@ class Controller:
         avg_color_per_row = np.average(img, axis=0)
         ac = np.average(avg_color_per_row, axis=0)
         color_delta = 15
-        print(key_name, '->', ac)
+        # print(key_name, '->', ac)
         full_status = np.average(ac, axis=0)
         if abs(ac[0] - ac[1]) < color_delta and abs(ac[1] - ac[2]) < color_delta and abs(ac[0] - ac[2]) < color_delta:
             return [True, full_status]

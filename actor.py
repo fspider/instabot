@@ -42,7 +42,7 @@ class Actor:
             key_word = 'specified_result'
         name = self.controller.capture_text(key_word)
         search_status = True
-        print(name)
+        print('name->',name)
         if (full_status > 253) or ('found' in name) or ('for you' in name) or (name is ''):
             search_status = False
 

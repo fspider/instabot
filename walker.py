@@ -138,12 +138,17 @@ class Walker:
         # TO DO
         # [ret, follow_status] = self.actor.capture_search_result('item_follow')
 
-        # self.startNewFollowings_Direct()
-        self.controller.mouse_double_click_name('menu_search_search')
-        time.sleep(2)
-        self.controller.key_input('a1111abc_x')
-        return
+        # self.startNewFollowings_Through()
+        # self.controller.mouse_double_click_name('menu_search_search')
+        # time.sleep(2)
 
+
+
+        # self.followings = ['1fly_guy', 'dan_qr1', 'sth_6']
+        # self.checkFollowings()
+        # self.unfollowings = ['jackson', '1fly_guy']
+        # self.removeUnfollowings()
+        # return
 
         if self.controller.isBlueStack:
             self.controller.mouse_icon_double_click('icon')
@@ -220,6 +225,7 @@ class Walker:
         self.logger.info('-> Check Following')
         self.controller.mouse_click_name('home')
         self.controller.mouse_click_name('profile')
+        time.sleep(1)
         self.controller.mouse_click_name('followers')
         time.sleep(4)
 
@@ -254,8 +260,9 @@ class Walker:
                 self.logger.critical('    ' + 'X ' + following)
                 self.parent.setStatus(following + ' is not following me')
 
-            self.controller.mouse_click_name('search')
-            self.controller.key_remove(following)
+            # self.controller.mouse_click_name('search')
+            # self.controller.key_remove(following)
+            self.controller.mouse_double_click_name('search_del')
 
         self.file_object.close()
         self.followings = []
@@ -313,8 +320,9 @@ class Walker:
                 self.logger.critical('    ' + '! ' + unfollowing)
                 self.parent.setStatus(unfollowing + ' not removed')
 
-            self.controller.mouse_click_name('search')
-            self.controller.key_remove(unfollowing)
+            # self.controller.mouse_click_name('search')
+            # self.controller.key_remove(unfollowing)
+            self.controller.mouse_double_click_name('search_del')
 
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('home')
@@ -333,7 +341,7 @@ class Walker:
         self.waitSleep()
         self.controller.mouse_click_name('search')
         self.waitSleep()
-        self.controller.mouse_click_name('followers')
+        self.controller.mouse_click_name('target_followers')
         self.controller.mouse_double_click_name('search')
         time.sleep(1)
         self.controller.mouse_double_click_name('search')
@@ -365,14 +373,15 @@ class Walker:
                     self.logger.info('    ' + 'A ' + name)
                     self.parent.setStatus(name + ' - Already following')
                 else:
-                    self.controller.mouse_click_name('item_unfollow')
+                    self.controller.mouse_click_name('specified_follow')
                     time.sleep(1)
                     self.actor.remove_block()
                     self.followings.append(name)
                     self.logger.critical('    ' + '+ ' + name)
                     self.parent.setStatus(name + ' - new Following')
 
-                self.controller.key_remove(name)
+                self.controller.mouse_double_click_name('search_del')
+                # self.controller.key_remove(name)
         except Exception as e:
             print('Error following one item', e)
         self.controller.mouse_click_name('back')
@@ -389,6 +398,7 @@ class Walker:
         self.logger.info('-> Start Followings Direct')
         self.controller.mouse_double_click_name('home')
         self.controller.mouse_double_click_name('menu_search')
+        self.controller.mouse_double_click_name('menu_search_search')
 
         try:
             for i in range(self.num_followers):
@@ -440,10 +450,11 @@ class Walker:
 
                 self.controller.mouse_click_name('back')
 
-                self.controller.mouse_double_click_name('menu_search_search')
-                self.controller.ctrl_A()
-                time.sleep(2)
-                self.controller.key_remove(name)
+                # self.controller.mouse_double_click_name('menu_search_search')
+                # self.controller.ctrl_A()
+                # time.sleep(2)
+                # self.controller.key_remove(name)
+                self.controller.mouse_double_click_name('direct_del')
         except Exception as e:
             print('Error following one item', e)
         self.controller.mouse_click_name('search_cancel')
