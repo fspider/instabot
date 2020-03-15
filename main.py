@@ -69,11 +69,17 @@ class MainFrm(Frame):
                                         ], justify='center')
         self.lbStatus = Label(self, text="Status is displayed here", anchor=W)
 
+        self.btFollowPause = Button(self, text = "Pause", command = self.bt_follow_pause_clicked)
+        self.btFollowResume = Button(self, text = "Resume", command = self.bt_follow_resume_clicked)
+
         # Control Buttons
         self.btStart.place(x=20, y = 120, w=bt_w, h=bt_h)
         self.btStop.place(x=20, y = 160, w=bt_w, h=bt_h)
         self.btSetting.place(x=20, y = 200, w=bt_w, h=bt_h)
         self.ckUnfollowing.place(x=20, y=240, w=bt_w, h=bt_h)
+
+        self.btFollowPause.place(x=20, y=515, w=50, h=bt_h)
+        self.btFollowResume.place(x=70, y=515, w=50, h=bt_h)
 
         self.lbCycle.place(x=20, y = 270, w=lb_w, h=lb_h)
         self.enCycleSt.place(x=20, y = 290, w=40, h=lb_h)
@@ -175,6 +181,22 @@ class MainFrm(Frame):
             self.config.write(f)
 
         return self.position
+    
+    def bt_follow_pause_clicked(self):
+        try:
+            self.walkerThread._isPausedFollowing.set()
+            self.logger.info('---Following Paused---')
+        except Exception as e:
+            print(e)
+            pass
+    
+    def bt_follow_resume_clicked(self):
+        try:
+            self.walkerThread._isPausedFollowing.clear()
+            self.logger.info('---Following Resumed---')
+        except Exception as e:
+            print(e)
+            pass
 
     def setStatus(self, value):
         self.lbStatus['text'] = value

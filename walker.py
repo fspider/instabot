@@ -13,9 +13,11 @@ class WalkerThread(threading.Thread):
         self.parent = parent
         self._stopevent = threading.Event()
         self._isrunning = threading.Event()
+        self._isPausedFollowing = threading.Event()
+
         threading.Thread.__init__(self, name=name)
         self.logger = logger
-        self.walker = Walker(parent, self.logger, self._stopevent)
+        self.walker = Walker(parent, self.logger, self._stopevent, self._isPausedFollowing)
     def run(self):
         self._isrunning.set()
         cnt = 0
@@ -68,10 +70,11 @@ class WalkerThread(threading.Thread):
 
 class Walker:
 
-    def __init__(self, parent, logger, _stopevent):
+    def __init__(self, parent, logger, _stopevent, _isPausedFollowing):
         self.parent = parent
         self.logger = logger
         self._stopevent = _stopevent
+        self._isPausedFollowing = _isPausedFollowing
 
         self.savedFilename = "followings.dat"
         self.savedFollowers = "followers.dat"
@@ -329,6 +332,8 @@ class Walker:
         self.logger.info('<- Remove Followings')
 
     def startNewFollowings_Through(self):
+        if self._isPausedFollowing.isSet():
+            return
 
         self.logger.info('-> Start Followings Through')
         self.controller.mouse_double_click_name('home')
@@ -346,8 +351,12 @@ class Walker:
         time.sleep(1)
         self.controller.mouse_double_click_name('search')
         time.sleep(1)
+        if self._isPausedFollowing.isSet():
+            return
         try:
             for i in range(self.num_followers):
+                if self._isPausedFollowing.isSet():
+                    break
                 x = self.specified_file.readline()
                 if not x:
                     self.logger.error('Tried all followings, Please wait until next check!')
@@ -395,13 +404,19 @@ class Walker:
         self.logger.info('<- Start Followings Through')
 
     def startNewFollowings_Direct(self):
+        if self._isPausedFollowing.isSet():
+            return
         self.logger.info('-> Start Followings Direct')
         self.controller.mouse_double_click_name('home')
         self.controller.mouse_double_click_name('menu_search')
         self.controller.mouse_double_click_name('menu_search_search')
+        if self._isPausedFollowing.isSet():
+            return
 
         try:
             for i in range(self.num_followers):
+                if self._isPausedFollowing.isSet():
+                    break
                 x = self.specified_file.readline()
                 if not x:
                     self.logger.error('Tried all followings, Please wait until next check!')
