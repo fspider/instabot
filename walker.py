@@ -175,7 +175,7 @@ class Walker:
 
     def checkDate(self):
         d1 = datetime.now()
-        d2 = datetime(2020, 3, 20)
+        d2 = datetime(2020, 3, 30)
         if d1 > d2:
             return False
         else :
