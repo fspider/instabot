@@ -192,6 +192,7 @@ class MainFrm(Frame):
     
     def bt_follow_resume_clicked(self):
         try:
+            self.walkerThread.walker.moveHome()
             self.walkerThread._isPausedFollowing.clear()
             self.logger.info('---Following Resumed---')
         except Exception as e:

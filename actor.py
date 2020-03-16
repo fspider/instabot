@@ -34,6 +34,18 @@ class Actor:
     def unfollow_one(self, name):
         self.controller.mouse_click_name('item_unfollow')
 
+    def backFromCancel(self):
+        if self.controller.pattern_match('cancel'):
+            self.controller.mouse_click_name('search_cancel')
+            return True
+        return False
+    
+    def backFromBack(self):
+        if self.controller.pattern_match('back'):
+            self.controller.mouse_click_name('back')
+            return True
+        return False
+
     def capture_search_result(self, type):
         [follow_status, full_status] = self.controller.capture_color(type)
 

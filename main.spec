@@ -6,7 +6,8 @@ added_files = [
     ('banner.png', '.'),
     ('config.ini', '.'),
     ('README.md', '.'),
-    ('Tesseract-OCR', 'Tesseract-OCR')
+    ('Tesseract-OCR', 'Tesseract-OCR'),
+    ('img', 'img')
 ]
 
 a = Analysis(['main.py'],

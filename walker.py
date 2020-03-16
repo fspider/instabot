@@ -113,44 +113,7 @@ class Walker:
     def start(self):
         self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
 
-        # OK for through checking
-        # self.controller.mouse_click_name('home')
-        # self.controller.mouse_click_name('menu_search')
-        # self.controller.mouse_click_name('menu_search_search')
-        # self.controller.mouse_click_name('search')
-        # self.controller.mouse_click_name('followers')
-        # self.controller.mouse_click_name('search')
-        # self.controller.mouse_click_name('item_unfollow')
-        # [ret, follow_status] = self.actor.capture_search_result('specified_follow')
-        # print (ret, follow_status)
-        # self.startNewFollowings_Through()
-        # self.controller.mouse_click_name('back')
-
-        # OK for direct checking
-        # scan_ret = self.controller.scan('direct_scan')
-        # print(scan_ret)
-
-        # OK for unfollow
-        # self.controller.mouse_click_name('search_cancel')
-        # self.controller.mouse_click_name('profile')
-        # self.controller.mouse_click_name('following')
-
-        # CHECK AGAIN
-        # self.actor.unfollow_one('aa')
-
-        # TO DO
-        # [ret, follow_status] = self.actor.capture_search_result('item_follow')
-
-        # self.startNewFollowings_Through()
-        # self.controller.mouse_double_click_name('menu_search_search')
-        # time.sleep(2)
-
-
-
-        # self.followings = ['1fly_guy', 'dan_qr1', 'sth_6']
-        # self.checkFollowings()
-        # self.unfollowings = ['jackson', '1fly_guy']
-        # self.removeUnfollowings()
+        # self.moveHome()
         # return
 
         if self.controller.isBlueStack:
@@ -199,6 +162,16 @@ class Walker:
         # self.saveFollowingList()
         # if self._stopevent.isSet():
         #     return
+
+    def moveHome(self):
+        for x in range(5):
+            time.sleep(1)
+            if self.actor.backFromCancel():
+                continue
+            if self.actor.backFromBack():
+                continue
+            return
+            
 
     def checkDate(self):
         d1 = datetime.now()
