@@ -324,6 +324,7 @@ class Controller:
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
 
         template = cv2.imread('img/'+imgname+'.png',0)
+        template = cv2.resize(template, (self.w/430, self.h/762), interpolation = cv2.INTER_AREA)
         w, h = template.shape[::-1]
 
         res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)

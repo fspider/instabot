@@ -3186,3 +3186,8 @@
 2020-03-23 16:54:00,683 - INFO - -> Start Followings Direct
 2020-03-23 16:54:22,197 - INFO - <- Start Followings Direct
 2020-03-23 16:54:22,197 - WARNING - On idle time until 2020-03-23 17:00:49.054690
+2020-03-23 18:39:06,400 - ERROR - Bot Thread Started!
+2020-03-23 18:39:06,405 - ERROR - Opened Follower List !
+2020-03-23 18:39:06,409 - ERROR - [START 1th Cycle]
+2020-03-23 18:39:06,409 - INFO - -> Discarded Unfollowing
+2020-03-23 18:39:06,409 - INFO - -> Start Followings Direct
