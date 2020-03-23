@@ -108,12 +108,27 @@ class Controller:
         except Exception as e:
             print('Error with Set Cursor ', x, y, e)
 
+    def mouse_drag(self, x1, y1, x2, y2):
+        try:
+            win32api.SetCursorPos((x1,y1))
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x1,y1,0,0)
+            nstep = 10
+            for i in range(nstep):
+                time.sleep(0.05)
+                dx = int(x1 + (x2-x1)/nstep*(i+1))
+                dy = int(y1 + (y2-y1)/nstep*(i+1))
+                win32api.SetCursorPos((dx,dy))
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x2,y2,0,0)
+        except Exception as e:
+            print('Error with Set Cursor ', x1, y1, x2, y2, e)
+
+
     def mouse_icon_double_click(self, name):
         button_x = int(self.config.get('points', name + '_x'))
         button_y = int(self.config.get('points', name + '_y'))
-        self.mouse_click(button_x, button_y);
+        self.mouse_click(button_x, button_y)
         time.sleep(0.1)
-        self.mouse_click(button_x, button_y);
+        self.mouse_click(button_x, button_y)
 
     def close_icon_click(self, name):
         st_x = float(self.config.get('points', name+'_st_x'))
@@ -315,15 +330,42 @@ class Controller:
         threshold = 0.8
         loc = np.where( res >= threshold)
         ret = False
+        rect = [0, 0, 0, 0]
         for pt in zip(*loc[::-1]):
             cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
             ret = True
+            rect = [pt[0], pt[1], w, h]
 
         # cv2.imshow('windows',img_rgb)
         # cv2.waitKey(1)
         print('Check', imgname, ret)
-        return ret
+        return [ret, rect]
 
+    def pattern_click(self, imgname, icon, rect):
+        icon_x = min(float(self.config.get('points', icon + '_x')), 0.99)
+        icon_y = min(float(self.config.get('points', icon + '_y')), 0.99)
 
+        [x, y, w, h] = rect
+        item_x1 = min(float(self.config.get('rect', imgname + '_x1')), 0.99)
+        item_y1 = min(float(self.config.get('rect', imgname + '_y1')), 0.99)
+        # item_x2 = min(float(self.config.get('rect', imgname + '_x2')), 0.99)
+        # item_y2 = min(float(self.config.get('rect', imgname + '_y2')), 0.99)
+        # rect_x1 = int(self.x + self.w * item_x1) + x
+        # rect_y1 = int(self.y + self.h * item_y1 + self.padding_y) + y
+        rect_x2 = int(self.x + self.w * item_x1) + x + int(w * icon_x)
+        rect_y2 = int(self.y + self.h * item_y1 + self.padding_y) + y + int(h * icon_y)
+        # print(rect_x1, rect_x2, rect_y1, rect_y2)
+        self.mouse_click(rect_x2, rect_y2)
+
+    def main_drag(self, keyname = 'drag'):
+        item_x1 = min(float(self.config.get('rect', keyname + '_x1')), 0.99)
+        item_y1 = min(float(self.config.get('rect', keyname + '_y1')), 0.99)
+        item_x2 = min(float(self.config.get('rect', keyname + '_x2')), 0.99)
+        item_y2 = min(float(self.config.get('rect', keyname + '_y2')), 0.99)
+        rect_x1 = int(self.x + self.w * item_x1)
+        rect_y1 = int(self.y + self.h * item_y1 + self.padding_y)
+        rect_x2 = int(self.x + self.w * item_x2)
+        rect_y2 = int(self.y + self.h * item_y2 + self.padding_y)
+        self.mouse_drag(rect_x1, rect_y1, rect_x2, rect_y2)
 
 

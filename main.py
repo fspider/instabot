@@ -40,7 +40,9 @@ class MainFrm(Frame):
         self.btSetting = Button(self, text = "Region", command = self.btSetting_clicked)
 
         self.doUnfollowing = IntVar()
-        self.ckUnfollowing = Checkbutton(self, text="unfollowing", variable=self.doUnfollowing)
+        self.ckUnfollowing = Checkbutton(self, text="unfollowing", variable=self.doUnfollowing, anchor = 'w')
+        self.doLikes = IntVar()
+        self.ckLikes = Checkbutton(self, text="Likes", variable=self.doLikes, anchor = 'w')
 
         self.lbCycle = Label(self, text="Cycle (hour)")
         self.enCycleSt = Entry(self, justify='center')
@@ -56,6 +58,11 @@ class MainFrm(Frame):
         self.enSearchDelaySt = Entry(self, justify='center')
         self.lbSearchDelayMd = Label(self, text="~")
         self.enSearchDelayEd = Entry(self, justify='center')
+
+        self.lbLikesDelay = Label(self, text="Likes Delay")
+        self.enLikesDelaySt = Entry(self, justify='center')
+        self.lbLikesDelayMd = Label(self, text="~")
+        self.enLikesDelayEd = Entry(self, justify='center')
 
         self.lbFollower = Label(self, text="Follower")
         self.enFollower = Entry(self, justify='center')
@@ -76,10 +83,11 @@ class MainFrm(Frame):
         self.btStart.place(x=20, y = 120, w=bt_w, h=bt_h)
         self.btStop.place(x=20, y = 160, w=bt_w, h=bt_h)
         self.btSetting.place(x=20, y = 200, w=bt_w, h=bt_h)
-        self.ckUnfollowing.place(x=20, y=240, w=bt_w, h=bt_h)
+        self.ckUnfollowing.place(x=20, y=230, w=bt_w, h=bt_h)
+        self.ckLikes.place(x=20, y=250, w=bt_w, h=bt_h)
 
-        self.btFollowPause.place(x=20, y=515, w=50, h=bt_h)
-        self.btFollowResume.place(x=70, y=515, w=50, h=bt_h)
+        self.btFollowPause.place(x=20, y=555, w=50, h=bt_h)
+        self.btFollowResume.place(x=70, y=555, w=50, h=bt_h)
 
         self.lbCycle.place(x=20, y = 270, w=lb_w, h=lb_h)
         self.enCycleSt.place(x=20, y = 290, w=40, h=lb_h)
@@ -96,13 +104,18 @@ class MainFrm(Frame):
         self.lbSearchDelayMd.place(x=65, y = 370, w=10, h=lb_h)
         self.enSearchDelayEd.place(x=80, y = 370, w=40, h=lb_h)
 
-        self.lbFollower.place(x=20, y = 395, w=lb_w, h=lb_h)
-        self.enFollower.place(x=20, y = 415, w=lb_w, h=lb_h)
-        self.lbFollowerList.place(x=20, y = 435, w=lb_w, h=lb_h)
-        self.enFollowerList.place(x=20, y = 455, w=lb_w, h=lb_h)
+        self.lbLikesDelay.place(x=20, y = 390, w=lb_w, h=lb_h)
+        self.enLikesDelaySt.place(x=20, y = 410, w=40, h=lb_h)
+        self.lbLikesDelayMd.place(x=65, y = 410, w=10, h=lb_h)
+        self.enLikesDelayEd.place(x=80, y = 410, w=40, h=lb_h)
 
-        self.lbSearchMethod.place(x=20, y = 475, w=lb_w, h=lb_h)
-        self.cbSearchMethod.place(x=20, y = 495, w=lb_w, h=lb_h)
+        self.lbFollower.place(x=20, y = 435, w=lb_w, h=lb_h)
+        self.enFollower.place(x=20, y = 455, w=lb_w, h=lb_h)
+        self.lbFollowerList.place(x=20, y = 475, w=lb_w, h=lb_h)
+        self.enFollowerList.place(x=20, y = 495, w=lb_w, h=lb_h)
+
+        self.lbSearchMethod.place(x=20, y = 515, w=lb_w, h=lb_h)
+        self.cbSearchMethod.place(x=20, y = 535, w=lb_w, h=lb_h)
 
         self.enCycleSt.insert(END, '0.1')
         self.enCycleEd.insert(END, '0.2')
@@ -110,6 +123,8 @@ class MainFrm(Frame):
         self.enFollowsEd.insert(END, '5')
         self.enSearchDelaySt.insert(END, '12')
         self.enSearchDelayEd.insert(END, '16')
+        self.enLikesDelaySt.insert(END, '10')
+        self.enLikesDelayEd.insert(END, '20')
         self.enFollower.insert(END, 'garyvee')
         self.enFollowerList.insert(END, 'garyvee.txt')
         self.cbSearchMethod.current(1)

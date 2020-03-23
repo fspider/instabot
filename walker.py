@@ -15,6 +15,9 @@ class WalkerThread(threading.Thread):
         self._isrunning = threading.Event()
         self._isPausedFollowing = threading.Event()
 
+        self.likesDelaySt = int(self.parent.enLikesDelaySt.get())
+        self.likesDelayEd = int(self.parent.enLikesDelayEd.get())
+
         threading.Thread.__init__(self, name=name)
         self.logger = logger
         self.walker = Walker(parent, self.logger, self._stopevent, self._isPausedFollowing)
@@ -52,6 +55,10 @@ class WalkerThread(threading.Thread):
                 if self._stopevent.isSet():
                     break
                 time.sleep(3)
+                if self.parent.doLikes.get() == 1:
+                    self.likes_delay = int(random.uniform(self.likesDelaySt, self.likesDelayEd))
+                    self.walker.actor.find_click('likes', self.likes_delay)
+
             if self._stopevent.isSet():
                 break
 
@@ -112,7 +119,6 @@ class Walker:
 
     def start(self):
         self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
-
         # self.moveHome()
         # return
 

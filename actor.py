@@ -35,13 +35,15 @@ class Actor:
         self.controller.mouse_click_name('item_unfollow')
 
     def backFromCancel(self):
-        if self.controller.pattern_match('cancel'):
+        [ret, rect] = self.controller.pattern_match('cancel')
+        if ret:
             self.controller.mouse_click_name('search_cancel')
             return True
         return False
     
     def backFromBack(self):
-        if self.controller.pattern_match('back'):
+        [ret, rect] = self.controller.pattern_match('back') 
+        if ret:
             self.controller.mouse_click_name('back')
             return True
         return False
@@ -74,4 +76,14 @@ class Actor:
         with open(self.config_filename, 'w') as f:
             self.config.write(f + '\n')
         
+    def find_click(self, key_name, delay):
+        self.controller.main_drag()
+        time.sleep(delay)
+        [ret, rect] = self.controller.pattern_match(key_name)
+        # print('FIND RESULT ', key_name, ret, rect)
+        time.sleep(2)
+        if ret:
+            self.controller.pattern_click(key_name, 'heart', rect)
+            return
+
     
