@@ -3191,3 +3191,17 @@
 2020-03-23 18:39:06,409 - ERROR - [START 1th Cycle]
 2020-03-23 18:39:06,409 - INFO - -> Discarded Unfollowing
 2020-03-23 18:39:06,409 - INFO - -> Start Followings Direct
+2020-03-23 13:47:06,267 - ERROR - Bot Thread Started!
+2020-03-23 13:47:06,272 - ERROR - Opened Follower List !
+2020-03-23 13:47:06,272 - ERROR - [START 1th Cycle]
+2020-03-23 13:47:06,272 - INFO - -> Discarded Unfollowing
+2020-03-23 13:47:06,273 - INFO - -> Start Followings Direct
+2020-03-23 13:47:27,769 - INFO - <- Start Followings Direct
+2020-03-23 13:47:27,769 - WARNING - On idle time until 2020-03-23 13:53:54.644097
+2020-03-23 13:50:47,447 - ERROR - Bot Thread Started!
+2020-03-23 13:50:47,453 - ERROR - Opened Follower List !
+2020-03-23 13:50:47,453 - ERROR - [START 1th Cycle]
+2020-03-23 13:50:47,453 - INFO - -> Discarded Unfollowing
+2020-03-23 13:50:47,453 - INFO - -> Start Followings Direct
+2020-03-23 13:51:08,931 - INFO - <- Start Followings Direct
+2020-03-23 13:51:08,931 - WARNING - On idle time until 2020-03-23 13:57:35.824454
