@@ -145,8 +145,8 @@ class Walker:
         else:
             self.logger.info('-> Discarded Unfollowing')
 
-        if not self.checkDate():
-            return
+        # if not self.checkDate():
+        #     return
 
         if self.searchMethod == "Through":
             if self.readAll == False:
@@ -181,7 +181,7 @@ class Walker:
 
     def checkDate(self):
         d1 = datetime.now()
-        d2 = datetime(2020, 3, 30)
+        d2 = datetime(2020, 4, 30)
         if d1 > d2:
             return False
         else :
