@@ -267,6 +267,8 @@ class Walker:
         self.controller.mouse_click_name('discover_plus')
 
     def removeUnfollowings(self):
+        if self._isPausedFollowing.isSet():
+            return
         if len(self.unfollowings) == 0:
             self.logger.info('-> Nothing to Remove Following')
             return
@@ -282,6 +284,8 @@ class Walker:
         time.sleep(1)
 
         for unfollowing in self.unfollowings:
+            if self._isPausedFollowing.isSet():
+                return
             self.parent.setStatus(unfollowing + ' removing')
 
             if self._stopevent.isSet():
