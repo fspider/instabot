@@ -17,7 +17,7 @@ class MainFrm(Frame):
         tk.Frame.__init__(self)
         self.pack(fill=BOTH, expand=1)
         self.master.title("InstaBot")
-        self.master.geometry("600x600+50+100")
+        self.master.geometry("600x650+50+100")
 
         load = Image.open('banner.png')
         render = ImageTk.PhotoImage(load)
@@ -117,6 +117,10 @@ class MainFrm(Frame):
         self.lbSearchMethod.place(x=20, y = 515, w=lb_w, h=lb_h)
         self.cbSearchMethod.place(x=20, y = 535, w=lb_w, h=lb_h)
 
+        self.btUnfollow = Button(self, text = "Unfollow", command = self.btUnfollow_clicked)
+        self.btUnfollow.place(x=20, y = 555, w=bt_w, h=bt_h)
+
+
         self.enCycleSt.insert(END, '0.1')
         self.enCycleEd.insert(END, '0.2')
         self.enFollowsSt.insert(END, '2')
@@ -178,6 +182,9 @@ class MainFrm(Frame):
 
         self.btOkay = Button(self.regionWin, text = "O K", command = self.btOk_clicked)
         self.btOkay.place(x=50, y=50, w=80, h=30)
+
+    def btUnfollow_clicked(self):
+        pass
 
     def btOk_clicked(self):
         lv_x = self.regionWin.winfo_rootx()
