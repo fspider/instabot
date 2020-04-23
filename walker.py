@@ -8,9 +8,11 @@ import random
 random.seed(1)
 
 class WalkerThread(threading.Thread):
-    def __init__(self, logger, parent, name='WalkerThread'):
+    def __init__(self, logger, parent, method, name='WalkerThread'):
         # super(WalkerThread, self).__init__()
         self.parent = parent
+        self.method = method
+
         self._stopevent = threading.Event()
         self._isrunning = threading.Event()
         self._isPausedFollowing = threading.Event()
@@ -40,13 +42,19 @@ class WalkerThread(threading.Thread):
             ed = datetime.now() + timedelta(hours=cycle)
             self.logger.error('[START ' + str(cnt) + 'th Cycle]')
 
-            # Finish Last check and Break
-            if self.walker.readAll is True:
-                self.walker.start()
-                self.logger.error('All check finished!')
-                break
+            if self.method == "NORMAL":
+                # Finish Last check and Break
+                if self.walker.readAll is True:
+                    self.walker.start()
+                    self.logger.error('All check finished!')
+                    break
 
-            self.walker.start()
+                self.walker.start()
+            elif self.method == "ONLY_UNFOLLOW":
+                if self.walker.readAll is True:
+                    self.logger.error('All was Unfollowed!')
+                self.walker.onlyUnfollow()
+
             if self._stopevent.isSet():
                 break
 
@@ -265,6 +273,57 @@ class Walker:
         self.controller.mouse_click_name('back')
         self.controller.mouse_click_name('search')
         self.controller.mouse_click_name('discover_plus')
+
+    def onlyUnfollow(self):
+        self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
+
+        self.logger.info('-> Only Unfollowings')
+        self.controller.mouse_click_name('home')
+        self.controller.mouse_click_name('profile')
+        self.controller.mouse_click_name('following')
+        time.sleep(4)
+        self.controller.mouse_double_click_name('search')
+        time.sleep(1)
+        self.controller.mouse_double_click_name('search')
+        time.sleep(1)
+
+        try:
+            for i in range(self.num_followers):
+                x = self.specified_file.readline()
+                if not x:
+                    self.logger.error('Tried all unfollowings!')
+                    self.readAll = True
+                    break
+                unfollowing = x
+                self.parent.setStatus(unfollowing + ' removing')
+
+                if self._stopevent.isSet():
+                    break
+                self.controller.mouse_double_click_name('search')
+                time.sleep(1)
+                self.controller.key_input(unfollowing)
+
+                self.waitSleep()
+
+                [ret, follow_status] = self.actor.capture_search_result('item_follow')
+                if ret and follow_status:
+                    self.actor.unfollow_one(unfollowing)
+                    self.logger.critical('    ' + '- ' + unfollowing)
+                    self.parent.setStatus(unfollowing + ' removed')
+                else:
+                    self.followings.append(unfollowing)
+                    self.logger.critical('    ' + '! ' + unfollowing)
+                    self.parent.setStatus(unfollowing + ' not removed')
+
+                # self.controller.mouse_click_name('search')
+                # self.controller.key_remove(unfollowing)
+                self.controller.mouse_double_click_name('search_del')
+        except Exception as e:
+            print('Error unfollowing one item', e)
+
+        self.controller.mouse_click_name('back')
+        self.controller.mouse_click_name('home')
+        self.logger.info('<- Remove Followings')
 
     def removeUnfollowings(self):
         if self._isPausedFollowing.isSet():

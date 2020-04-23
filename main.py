@@ -130,7 +130,7 @@ class MainFrm(Frame):
         self.enLikesDelaySt.insert(END, '10')
         self.enLikesDelayEd.insert(END, '20')
         self.enFollower.insert(END, 'garyvee')
-        self.enFollowerList.insert(END, 'garyvee.txt')
+        self.enFollowerList.insert(END, 'text.txt')
         self.cbSearchMethod.current(1)
 
         self.console_frame = ttk.Labelframe(self, text="Console")
@@ -154,7 +154,7 @@ class MainFrm(Frame):
         MsgBox = tk.messagebox.askquestion('Confirm Page Status', 'Did you check if it is on main page now',
                                            icon='warning')
         if MsgBox == 'yes':
-            self.walkerThread = WalkerThread(self.logger, self)
+            self.walkerThread = WalkerThread(self.logger, self, 'NORMAL')
             self.btStart.config(state='disabled')
             self.walkerThread.start()
         else:
@@ -184,7 +184,15 @@ class MainFrm(Frame):
         self.btOkay.place(x=50, y=50, w=80, h=30)
 
     def btUnfollow_clicked(self):
-        pass
+        MsgBox = tk.messagebox.askquestion('Confirm Page Status', 'Did you check if it is on main page now',
+                                           icon='warning')
+        if MsgBox == 'yes':
+            self.walkerThread = WalkerThread(self.logger, self, 'ONLY_UNFOLLOW')
+            self.btStart.config(state='disabled')
+            self.walkerThread.start()
+        else:
+            tk.messagebox.showinfo('Confirm Search Page Status', 'Also please check if previous search item was closed')
+
 
     def btOk_clicked(self):
         lv_x = self.regionWin.winfo_rootx()

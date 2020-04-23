@@ -164,6 +164,8 @@ class Controller:
                 time.sleep(0.01)
                 win32api.keybd_event(VK_CODE['-'], 0, win32con.KEYEVENTF_KEYUP, 0)
                 win32api.keybd_event(VK_CODE['shift'], 0, win32con.KEYEVENTF_KEYUP, 0)
+            elif c == '\n':
+                continue
             else:
                 win32api.keybd_event(VK_CODE[c], 0, 0, 0)
                 time.sleep(0.01)
