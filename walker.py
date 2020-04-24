@@ -188,7 +188,12 @@ class Walker:
             if self.actor.backFromBack():
                 continue
             return
-            
+    
+    def checkPaused(self):
+        if self._isPausedFollowing.isSet():
+            self.moveHome()
+            return True
+        return False
 
     def checkDate(self):
         d1 = datetime.now()
