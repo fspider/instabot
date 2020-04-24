@@ -86,5 +86,10 @@ class Actor:
             self.controller.pattern_click(key_name, 'heart', rect)
             return
 
+    def check_captured_text(self, item_name, text):
+        res_text = self.controller.capture_text(item_name).lower()
+        print('[SPIDER] [captured_result] ', '<'+res_text+'>', '<'+text+'>')
+        return res_text == text
+
 
     

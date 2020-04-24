@@ -319,6 +319,11 @@ class Walker:
                     self.controller.pattern_click('ufollowing', 'ufollowing', rect)
                     time.sleep(2)
                     self.controller.mouse_click_name('direct_ufollowing')
+                    time.sleep(1)
+                    res = self.actor.check_captured_text('direct_ufollowing_again', 'unfollow')
+                    if res == True:
+                        self.controller.mouse_click_name('direct_ufollowing_again')
+                    time.sleep(1)
                     self.logger.critical('    ' + '- ' + unfollowing)
                     self.parent.setStatus(unfollowing + ' removed')
                 else:
