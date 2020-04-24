@@ -317,6 +317,8 @@ class Walker:
                 time.sleep(2)
                 if ret:
                     self.controller.pattern_click('ufollowing', 'ufollowing', rect)
+                    time.sleep(2)
+                    self.controller.mouse_click_name('direct_ufollowing')
                     self.logger.critical('    ' + '- ' + unfollowing)
                     self.parent.setStatus(unfollowing + ' removed')
                 else:

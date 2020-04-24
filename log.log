@@ -3377,3 +3377,7 @@
 2020-04-24 08:19:49,467 - CRITICAL -     - carlos.trippin
 2020-04-24 08:19:59,186 - INFO - <- Start Followings Direct
 2020-04-24 08:19:59,186 - WARNING - On idle time until 2020-04-24 08:23:07.623096
+2020-04-24 08:59:16,530 - ERROR - Bot Thread Started!
+2020-04-24 08:59:16,531 - ERROR - Opened Follower List !
+2020-04-24 08:59:16,532 - ERROR - [START 1th Cycle]
+2020-04-24 08:59:16,533 - INFO - -> Only Direct Unfollowings
