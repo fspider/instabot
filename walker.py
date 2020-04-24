@@ -334,7 +334,7 @@ class Walker:
             print('Error following one item', e)
         self.controller.mouse_click_name('search_cancel')
         self.controller.mouse_click_name('home')
-        self.logger.info('<- Start Followings Direct')
+        self.logger.info('<- Only Direct Unfollowings')
 
     def onlyProfileUnfollow(self):
         self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
