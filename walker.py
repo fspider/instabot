@@ -192,6 +192,7 @@ class Walker:
     def checkPaused(self):
         if self._isPausedFollowing.isSet():
             self.moveHome()
+            self.logger.info('Paused')
             return True
         return False
 
@@ -298,7 +299,7 @@ class Walker:
 
         try:
             for i in range(self.num_followers):
-                if self._isPausedFollowing.isSet():
+                if self.checkPaused():
                     return
 
                 x = self.specified_file.readline()
@@ -367,7 +368,7 @@ class Walker:
 
         try:
             for i in range(self.num_followers):
-                if self._isPausedFollowing.isSet():
+                if self.checkPaused():
                     return
 
                 x = self.specified_file.readline()
@@ -407,7 +408,7 @@ class Walker:
         self.logger.info('<- Remove Followings')
 
     def removeUnfollowings(self):
-        if self._isPausedFollowing.isSet():
+        if self.checkPaused():
             return
         if len(self.unfollowings) == 0:
             self.logger.info('-> Nothing to Remove Following')
@@ -424,7 +425,7 @@ class Walker:
         time.sleep(1)
 
         for unfollowing in self.unfollowings:
-            if self._isPausedFollowing.isSet():
+            if self.checkPaused():
                 return
             self.parent.setStatus(unfollowing + ' removing')
 
@@ -455,7 +456,7 @@ class Walker:
         self.logger.info('<- Remove Followings')
 
     def startNewFollowings_Through(self):
-        if self._isPausedFollowing.isSet():
+        if self.checkPaused():
             return
 
         self.logger.info('-> Start Followings Through')
@@ -477,7 +478,7 @@ class Walker:
 
         try:
             for i in range(self.num_followers):
-                if self._isPausedFollowing.isSet():
+                if self.checkPaused():
                     break
                 x = self.specified_file.readline()
                 if not x:
@@ -526,7 +527,7 @@ class Walker:
         self.logger.info('<- Start Followings Through')
 
     def startNewFollowings_Direct(self):
-        if self._isPausedFollowing.isSet():
+        if self.checkPaused.isSet():
             return
         self.logger.info('-> Start Followings Direct')
         self.controller.mouse_double_click_name('home')
@@ -535,7 +536,7 @@ class Walker:
 
         try:
             for i in range(self.num_followers):
-                if self._isPausedFollowing.isSet():
+                if self.checkPaused():
                     break
                 x = self.specified_file.readline()
                 if not x:
