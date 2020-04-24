@@ -42,21 +42,24 @@ class WalkerThread(threading.Thread):
             ed = datetime.now() + timedelta(hours=cycle)
             self.logger.error('[START ' + str(cnt) + 'th Cycle]')
 
-            if self.method == "NORMAL":
-                # Finish Last check and Break
-                if self.walker.readAll is True:
+            if self._isPausedFollowing.isSet():
+                self.logger.warning('Paused : Idle Cycle')
+            else:
+                if self.method == "NORMAL":
+                    # Finish Last check and Break
+                    if self.walker.readAll is True:
+                        self.walker.start()
+                        self.logger.error('All check finished!')
+                        break
+
                     self.walker.start()
-                    self.logger.error('All check finished!')
+                elif self.method == "ONLY_UNFOLLOW":
+                    if self.walker.readAll is True:
+                        self.logger.error('All was Unfollowed!')
+                    self.walker.onlyUnfollow()
+
+                if self._stopevent.isSet():
                     break
-
-                self.walker.start()
-            elif self.method == "ONLY_UNFOLLOW":
-                if self.walker.readAll is True:
-                    self.logger.error('All was Unfollowed!')
-                self.walker.onlyUnfollow()
-
-            if self._stopevent.isSet():
-                break
 
             self.logger.warning('On idle time until ' + str(ed))
             while datetime.now() < ed:
