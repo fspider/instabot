@@ -287,11 +287,12 @@ class Walker:
         self.controller.mouse_double_click_name('home')
         self.controller.mouse_double_click_name('menu_search')
         self.controller.mouse_double_click_name('menu_search_search')
-        if self._isPausedFollowing.isSet():
-            return
 
         try:
             for i in range(self.num_followers):
+                if self._isPausedFollowing.isSet():
+                    return
+
                 x = self.specified_file.readline()
                 if not x:
                     self.logger.error('Tried all unfollowings!')
@@ -358,6 +359,9 @@ class Walker:
 
         try:
             for i in range(self.num_followers):
+                if self._isPausedFollowing.isSet():
+                    return
+
                 x = self.specified_file.readline()
                 if not x:
                     self.logger.error('Tried all unfollowings!')
@@ -462,8 +466,7 @@ class Walker:
         time.sleep(1)
         self.controller.mouse_double_click_name('search')
         time.sleep(1)
-        if self._isPausedFollowing.isSet():
-            return
+
         try:
             for i in range(self.num_followers):
                 if self._isPausedFollowing.isSet():
@@ -521,8 +524,6 @@ class Walker:
         self.controller.mouse_double_click_name('home')
         self.controller.mouse_double_click_name('menu_search')
         self.controller.mouse_double_click_name('menu_search_search')
-        if self._isPausedFollowing.isSet():
-            return
 
         try:
             for i in range(self.num_followers):

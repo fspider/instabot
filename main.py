@@ -215,7 +215,7 @@ class MainFrm(Frame):
     def bt_follow_pause_clicked(self):
         try:
             self.walkerThread._isPausedFollowing.set()
-            self.logger.info('---Following Paused---')
+            self.logger.info('---Following will be Paused after this action---')
         except Exception as e:
             print(e)
             pass
