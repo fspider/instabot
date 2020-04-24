@@ -326,11 +326,15 @@ class Controller:
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
 
         template = cv2.imread('img/'+imgname+'.png',0)
-        template = cv2.resize(template, dsize=(0,0), fx=self.w/430, fy=self.h/762, interpolation = cv2.INTER_LINEAR)
+        div = [430, 762]
+        if imgname=="ufollowing":
+            div = [403, 709]
+
+        template = cv2.resize(template, dsize=(0,0), fx=self.w/div[0], fy=self.h/div[1], interpolation = cv2.INTER_LINEAR)
         w, h = template.shape[::-1]
 
         res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
-        threshold = 0.8
+        threshold = 0.7
         loc = np.where( res >= threshold)
         ret = False
         rect = [0, 0, 0, 0]

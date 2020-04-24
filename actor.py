@@ -86,4 +86,5 @@ class Actor:
             self.controller.pattern_click(key_name, 'heart', rect)
             return
 
+
     

@@ -153,8 +153,8 @@ class Walker:
         else:
             self.logger.info('-> Discarded Unfollowing')
 
-        # if not self.checkDate():
-        #     return
+        if not self.checkDate():
+            return
 
         if self.searchMethod == "Through":
             if self.readAll == False:
@@ -189,7 +189,7 @@ class Walker:
 
     def checkDate(self):
         d1 = datetime.now()
-        d2 = datetime(2020, 4, 30)
+        d2 = datetime(2020, 5, 20)
         if d1 > d2:
             return False
         else :
@@ -275,9 +275,71 @@ class Walker:
         self.controller.mouse_click_name('discover_plus')
 
     def onlyUnfollow(self):
+        if self.searchMethod == "Direct":
+            self.onlyDirectUnfollow()
+        else:
+            self.onlyProfileUnfollow()
+
+    def onlyDirectUnfollow(self):
+        self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
+        self.logger.info('-> Only Direct Unfollowings')
+
+        self.controller.mouse_double_click_name('home')
+        self.controller.mouse_double_click_name('menu_search')
+        self.controller.mouse_double_click_name('menu_search_search')
+        if self._isPausedFollowing.isSet():
+            return
+
+        try:
+            for i in range(self.num_followers):
+                x = self.specified_file.readline()
+                if not x:
+                    self.logger.error('Tried all unfollowings!')
+                    self.readAll = True
+                    break
+                unfollowing = x[:-1]
+
+                self.parent.setStatus(unfollowing + ' removing')
+                if self._stopevent.isSet():
+                    break
+
+                self.controller.mouse_double_click_name('menu_search_search')
+                time.sleep(2)
+                self.controller.key_input(str(unfollowing))
+                self.waitSleep()
+                # Check here if exists
+                self.controller.mouse_click_name('search')
+                self.waitSleep()
+
+
+                [ret, rect] = self.controller.pattern_match('ufollowing')
+                print('FIND RESULT ', 'ufollowing', ret, rect)
+                time.sleep(2)
+                if ret:
+                    self.controller.pattern_click('ufollowing', 'ufollowing', rect)
+                    self.logger.critical('    ' + '- ' + unfollowing)
+                    self.parent.setStatus(unfollowing + ' removed')
+                else:
+                    self.logger.critical('    ' + '! ' + unfollowing)
+                    self.parent.setStatus(unfollowing + ' not removed')
+
+                self.controller.mouse_click_name('back')
+
+                # self.controller.mouse_double_click_name('menu_search_search')
+                # self.controller.ctrl_A()
+                # time.sleep(2)
+                # self.controller.key_remove(name)
+                self.controller.mouse_double_click_name('direct_del')
+        except Exception as e:
+            print('Error following one item', e)
+        self.controller.mouse_click_name('search_cancel')
+        self.controller.mouse_click_name('home')
+        self.logger.info('<- Start Followings Direct')
+
+    def onlyProfileUnfollow(self):
         self.num_followers = int(random.uniform(self.num_followerSt, self.num_followerEd))
 
-        self.logger.info('-> Only Unfollowings')
+        self.logger.info('-> Only Profile Unfollowings')
         self.controller.mouse_click_name('home')
         self.controller.mouse_click_name('profile')
         self.controller.mouse_click_name('following')
@@ -294,7 +356,7 @@ class Walker:
                     self.logger.error('Tried all unfollowings!')
                     self.readAll = True
                     break
-                unfollowing = x
+                unfollowing = x[:-1]
                 self.parent.setStatus(unfollowing + ' removing')
 
                 if self._stopevent.isSet():
