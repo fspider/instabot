@@ -118,7 +118,7 @@ class MainFrm(Frame):
         self.cbSearchMethod.place(x=20, y = 535, w=lb_w, h=lb_h)
 
         self.btUnfollow = Button(self, text = "Unfollow", command = self.btUnfollow_clicked)
-        self.btUnfollow.place(x=20, y = 555, w=bt_w, h=bt_h)
+        self.btUnfollow.place(x=20, y = 585, w=bt_w, h=bt_h)
 
 
         self.enCycleSt.insert(END, '0.1')
